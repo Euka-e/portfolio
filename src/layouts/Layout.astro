@@ -23,16 +23,6 @@ const { title, description } = Astro.props;
   <body>
     <Header />
     <slot />
-    <script>
-      window.addEventListener('wheel', (e) => {
-        e.preventDefault();
-        const scrollPosition = window.scrollY + (e.deltaY * 0.5);
-        window.scrollTo({
-          top: scrollPosition,
-          behavior: 'smooth'
-        });
-      });
-    </script>
   </body>
 </html>
 <style is:global>
@@ -41,7 +31,6 @@ const { title, description } = Astro.props;
   }
   html {
     font-family: "Geist Mono", sans-serif;
-    scroll-behavior: smooth;
   }
   body {
     background: linear-gradient(180deg, #020021 0%, #02001a 50%, #080053 100%);

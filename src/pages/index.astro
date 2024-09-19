@@ -1,54 +1,22 @@
 ---
-import Badge from "../components/Badge.astro";
-import LinkedInIcon from "../icons/LinkedIn.astro";
-import GitHubIcon from "../icons/GitHub.astro";
 import Layout from "../layouts/Layout.astro";
-import MailIcon from "../icons/Mail.astro";
 import SocialButton from "../components/SocialButton.astro";
-import ExperienceCard from "../components/ExperienceCard.astro";
 import Experience from "../components/Experience.astro";
+import Presentation from "../components/Presentation.astro";
+import Pills from "../components/Pills.astro";
+import Experience2 from "../components/Experience2.astro";
 ---
 
 <Layout
   title="Eric Diaz's Portfolio - Full-Stack Web Developer"
-  description="If you are looking for a full-stack and highly dedicated web developer to build your next project  or just want to say hi , you've come to the right place."
+  description="If you are looking for a full-stack and highly dedicated web developer and programmer to build your next project  or just want to say hi , you've come to the right place."
 >
   <section class="py-40 w-full mx-auto lg:w-[740px]">
     <main>
-      <img
-        class="rounded-full size-24 mb-5"
-        src="https://avatars.githubusercontent.com/u/91031571?s=400&u=384c47896fa89b09d88ecd3042b4cc893dd07aea&v=4"
-        alt="Eric photo"
-      />
-      <h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-4">
-        Hi, I'm Eric! <a
-          href="https://www.linkedin.com/in/eric-diaz-euka/"
-          target="_blank"
-          rel="noopener"
-          class="flex justify-center items-center"
-        >
-          <Badge>Available for hire</Badge></a
-        >
-      </h1>
-      <h2 class="text-2xl opacity-80 text-wrap">
-        Full-Stack Web Developer From Argentina 🧉 Specialized In Backend
-        Technologies 🛠️
-      </h2>
-      <nav class="flex flex-row gap-x-3 pt-4 mt-4">
-        <SocialButton href="http://www.linkedin.com/in/eric-diaz-euka/">
-          <LinkedInIcon class="size-6" />
-          LinkedIn
-        </SocialButton>
-        <SocialButton href="https://github.com/Euka-e">
-          <GitHubIcon class="size-6" />
-          GitHub
-        </SocialButton>
-        <SocialButton href="">
-          <MailIcon class="size-6" />
-          ericdiazeuka@gmail.com
-        </SocialButton>
-      </nav>
-      <Experience/>
+      <Presentation />
+      <Pills />
+      <Experience />
+      <Experience2 />
     </main>
   </section>
 </Layout>
