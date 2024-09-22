@@ -1,6 +1,5 @@
 ---
 import "@fontsource/geist-mono/300.css";
-import Header from "../components/Header.astro";
 
 interface Props {
   title: string;
@@ -21,7 +20,6 @@ const { title, description } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <Header />
     <slot />
   </body>
 </html>
@@ -31,6 +29,7 @@ const { title, description } = Astro.props;
   }
   html {
     font-family: "Geist Mono", sans-serif;
+    scroll-behavior: smooth;
   }
   body {
     background: linear-gradient(180deg, #020021 0%, #02001a 50%, #080053 100%);
@@ -39,4 +38,10 @@ const { title, description } = Astro.props;
     flex-direction: column;
     height: 100vh;
   }
+  @media(prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  
 </style>

@@ -3,12 +3,12 @@ import Badge from "./Badge.astro";
 ---
 
 <img
-  class="rounded-full size-24 mb-5"
+  class="rounded-full size-24 mb-5 mx-auto"
   src="https://avatars.githubusercontent.com/u/91031571?s=400&u=384c47896fa89b09d88ecd3042b4cc893dd07aea&v=4"
   alt="Eric photo"
 />
-<h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-4">
-  Hi, I'm Eric! <a
+<h1 class="text-white text-2xl sm:text-5xl font-bold flex flex-col sm:flex-row items-center justify-center text-center gap-x-4 pb-4">
+  <span class="min-w-[187.8px] flex flex-wrap">Hi, I'm Eric!</span><a
     href="https://www.linkedin.com/in/eric-diaz-euka/"
     target="_blank"
     rel="noopener"
@@ -17,8 +17,8 @@ import Badge from "./Badge.astro";
     <Badge>Available for hire</Badge></a
   >
 </h1>
-<h2 class="text-2xl text-wrap text-white pb-4">
-  <span class="text-gra">Full-Stack Web Developer</span> from
+<h2 class="text-xl text-wrap text-white pb-4 pl-10 pr-3">
+  <span class="text-red-500 font-bold">Full-Stack Web Developer</span> from
   <span class="text-lightblue font-bold text-lg">ar</span><span
     class="text-white font-bold text-lg">ge</span
   ><span class="text-yellow font-bold text-lg">n</span><span

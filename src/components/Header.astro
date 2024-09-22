@@ -1,10 +1,54 @@
-<header class="flex justify-center items-center py-3 w-[1120px] mx-auto">
-  <span></span>
+<header class="flex justify-center items-center py-3 xl:w-[1120px] mx-auto gap-x-10">
+  <nav
+    class="flex flex-col md:flex-row gap-x-10 opacity-80 md:justify-between md:items-center"
+  >
+    <input type="checkbox" id="menu-toggle" class="hidden" />
 
-  <nav class="flex flex-row gap-x-10 opacity-80">
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/projects">Projects</a>
-    <a href="/contact">Contact</a>
+    <label
+      for="menu-toggle"
+      class="md:hidden flex justify-center w-8 h-8 bg-gray-200 p-2 rounded"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </label>
+
+    <div class="hidden md:block flex gap-x-10">
+      <a href="#start">Home</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#about-me">About me</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div
+      id="mobile-menu"
+      class="md:hidden flex flex-col bg-gray-200 p-4 rounded-md gap-x10"
+    >
+      <a href="#start">Home</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#about-me">About me</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <style>
+      #mobile-menu {
+        display: none;
+      }
+      #menu-toggle:checked + label + div {
+        display: block;
+      }
+    </style>
   </nav>
 </header>
