@@ -1,22 +1,29 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import SocialButton from "../components/SocialButton.astro";
 import Experience from "../components/Experience.astro";
 import Presentation from "../components/Presentation.astro";
 import Pills from "../components/Pills.astro";
-import Experience2 from "../components/Experience2.astro";
+import SectionContainer from "../components/SectionContainer.astro";
 ---
 
 <Layout
   title="Eric Diaz's Portfolio - Full-Stack Web Developer"
   description="If you are looking for a full-stack and highly dedicated web developer and programmer to build your next project  or just want to say hi , you've come to the right place."
 >
-  <section class="py-40 w-full mx-auto lg:w-[740px]">
-    <main>
-      <Presentation />
-      <Pills />
-      <Experience />
-      <Experience2 />
-    </main>
-  </section>
+  <main>
+    <SectionContainer class="py-40 pb-20">
+      <SectionContainer>
+        <Presentation />
+      </SectionContainer>
+
+      <SectionContainer>
+        <Pills />
+      </SectionContainer>
+
+      <SectionContainer>
+        <h2 class="text-3xl font-bold mt-8 text-center">Proffesional Experience</h2>
+        <Experience />
+      </SectionContainer>
+    </SectionContainer>
+  </main>
 </Layout>
