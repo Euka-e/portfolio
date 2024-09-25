@@ -1,0 +1,43 @@
+---
+import ReactIcon from "../icons/technologies/react.astro";
+import NodeIcon from "../icons/technologies/node.astro";
+import TSIcon from "../icons/technologies/typescript.astro";
+import NextIcon from "../icons/technologies/next.astro";
+import JSIcon from "../icons/technologies/javascript.astro";
+import ExpressIcon from "../icons/technologies/express.astro";
+import NestIcon from "../icons/technologies/nest.astro";
+import PostgreIcon from "../icons/technologies/postgresql.astro";
+import MongoIcon from "../icons/technologies/mongo.astro";
+import GitIcon from "../icons/technologies/git.astro";
+import GitHubIcon from "../icons/technologies/github.astro";
+import ScrumIcon from "../icons/technologies/scrum.astro";
+import AstroIcon from "../icons/technologies/astro.astro";
+---
+
+<section class="w-full mx-auto lg:w-[740px]" id="technologies">
+  <h2 class="text-3xl font-bold text-center">Technologies</h2>
+  <ul class="flex flex-wrap justify-center mb-2 gap-4 px-7 mt-8">
+    {
+      [
+        { name: "React", icon: <ReactIcon /> },
+        { name: "Next.js", icon: <NextIcon /> },
+        { name: "Astro", icon: <AstroIcon /> },
+        { name: "JavaScript", icon: <JSIcon /> },
+        { name: "TypeScript", icon: <TSIcon /> },
+        { name: "Node.js", icon: <NodeIcon /> },
+        { name: "Express", icon: <ExpressIcon /> },
+        { name: "NestJS", icon: <NestIcon /> },
+        { name: "PostgreSQL", icon: <PostgreIcon /> },
+        { name: "MongoDB", icon: <MongoIcon /> },
+        { name: "Git", icon: <GitIcon /> },
+        { name: "GitHub", icon: <GitHubIcon /> },
+        { name: "Scrum", icon: <ScrumIcon /> },
+      ].map((tech) => (
+        <li class="flex flex-col items-center size-[100px] bg-white/5 rounded-md hover:bg-white/10 transition p-2">
+          {tech.icon}
+          <p class="text-white-800 text-center">{tech.name}</p>
+        </li>
+      ))
+    }
+  </ul>
+</section>

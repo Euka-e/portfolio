@@ -1,31 +1,43 @@
----
-import ExperienceCard from "./ExperienceCard.astro";
----
-
-<div >
-  <ExperienceCard
-    technologies={["Node.js", "TypeScript", "Express", "TypeORM", "PostgreSQL"]}
-    title="Full-stack Web Developer"
-    company="Scrum LATAM"
-    dates="August 2024 - Present"
-    description="Developing Full-Stack Web Applications Using Technologies Such as Node.js, TypeScript, Express, TypeORM, and PostgreSQL."
-  />
-
-  <ExperienceCard
-    technologies={[
-      "React",
-      "Express",
-      "Node.js",
-      "Nest.js",
-      "Next.js",
-      "Redux",
-      "PostgreSQL",
-      "MongoDB",
-      "TypeORM",
-    ]}
-    title="Teaching Assistant"
-    company="Henry"
-    dates="June 2024 - August 2024"
-    description="Assisting Students in Henry's Full Stack Web Development Career with Technical and/or Administrative Difficulties. Providing Tools to Resolve Technical Issues and Develop Soft Skills."
-  />
-</div>
+<section class="w-full mx-auto lg:w-[740px]" id="experience">
+  <h2 class="text-3xl font-bold text-center">Proffesional Experience</h2>
+  <ul class="flex flex-wrap justify-center mb-2">
+    {
+      [
+        {
+          title: "Full-stack Web Developer",
+          company: "Scrum LATAM",
+          dates: "August 2024 - Present",
+          description:
+            "Develop complex full-stack web applications utilizing technologies such as Node.js, React, and PostgreSQL. My responsibilities included designing and implementing databases, creating RESTful APIs, and building intuitive user interfaces. I collaborate closely with teams to ensure high-quality, scalable project delivery.",
+          icon: "./icons/nodejs.svg",
+        },
+        {
+          title: "Teaching Assistant",
+          company: "Henry",
+          dates: "June 2024 - August 2024",
+          description:
+            "Assisted students in Henry's full-stack web development program, providing guidance and support with projects and exercises. My role involved code reviews, constructive feedback, and facilitating key programming concepts.",
+          icon: "./icons/react.svg",
+        },
+        {
+          title: "Full-Stack Web Developer",
+          company: "Freelance",
+          dates: "2022 - 2024",
+          description:
+            "Designed and developed customized websites and web applications for various clients. My focus was on creating engaging, functional user experiences using technologies like HTML, CSS, JavaScript, and relevant frameworks.",
+          icon: "./icons/fullstack.svg",
+        },
+      ].map((exp) => (
+      <li class="m-2 bg-slate-900 p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+        {/* <div class="flex justify-center mb-4">
+          <img src={exp.icon} alt={exp.title} class="w-10 h-10" />
+        </div> */}
+        <h3 class="text-lg font-bold text-white text-center">{exp.title}</h3>
+        <p class="text-slate-400 text-center font-bold">{exp.company}</p>
+        <p class="text-slate-400 text-center">{exp.dates}</p>
+        <p class="text-white-800 text-justify px-4">{exp.description}</p>
+      </li>
+      ))
+    }
+  </ul>
+</section>

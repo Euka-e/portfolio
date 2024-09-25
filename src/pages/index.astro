@@ -6,6 +6,7 @@ import Pills from "../components/Pills.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Technologies from "../components/Technologies.astro";
 ---
 
 <Layout
@@ -13,7 +14,7 @@ import Footer from "../components/Footer.astro";
   description="If you are looking for a full-stack and highly dedicated web developer and programmer to build your next project  or just want to say hi , you've come to the right place."
 >
   <main>
-    <div class="flex justify-start items-center py-3 xl:w-[1120px] mx-auto gap-x-10">
+    <div class="flex justify-start items-center py-3 xl:w-[1120px] mx-auto gap-x-10" id="start">
       <Header />
     </div>
     <SectionContainer class="sm:pt-28 pt-10 pb-20">
@@ -22,13 +23,17 @@ import Footer from "../components/Footer.astro";
         <Pills />
       </SectionContainer>
 
-      <SectionContainer class="mt-20" id="experience">
-        <h2 class="text-3xl font-bold text-center">Proffesional Experience</h2>
+      <SectionContainer class="mt-20">
         <Experience />
       </SectionContainer>
+
+      <SectionContainer class="mt-20">
+        <Technologies/>
+      </SectionContainer>
+
     </SectionContainer>
-    <SectionContainer>
+    <!-- <SectionContainer>
       <Footer />
-    </SectionContainer>
+    </SectionContainer> -->
   </main>
 </Layout>
