@@ -9,13 +9,5 @@ const { technologies, title, company, dates, description } = Astro.props;
   <p class="text-white-600 mb-1">{company}</p>
   <p class="text-white-600 mb-2">{dates}</p>
   <p class="text-white-800">{description}</p>
-  <ul class="flex flex-wrap mb-2">
-    {
-      technologies.map((tech: string) => (
-        <li class="bg-slate-800 text-white rounded-md px-2 py-1 text-md m-1 hover:bg-slate-200 hover:text-slate-800">
-          {tech}
-        </li>
-      ))
-    }
   </ul>
 </div>

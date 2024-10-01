@@ -1,0 +1,24 @@
+---
+import type { Project } from "../../types/Project";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props as Props;
+---
+
+<div
+  class="max-w-[740px] min-w-[300px] bg-slate-900 px-4 py-2 mx-auto rounded-lg shadow-md hover:shadow-lg transition duration-300 flex flex-col"
+>
+  <h3 class="text-lg font-bold text-white text-center mb-4">{project.title}</h3>
+  <p class="text-slate-100 text-center">{project.description}</p>
+  <p class="text-slate-400 text-center mb-4">Date: {project.date}</p>
+  <ul class="flex flex-wrap mb-2">
+    {
+      project.tasks.map((task: string) => (
+        <li class="w-full text-white-800">✔️{task}</li>
+      ))
+    }
+  </ul>
+</div>

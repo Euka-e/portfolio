@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Personal Website",
+    "description": "A responsive website showcasing my skills and experiences.",
+    "date": "2024",
+    "tasks": [
+      "Designed and implemented the UI/UX",
+      "Developed the frontend using HTML, CSS, and JavaScript"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "E-commerce Platform",
+    "description": "A scalable e-commerce platform for online shopping.",
+    "date": "2024",
+    "tasks": [
+      "Designed and implemented database schema",
+      "Developed RESTful API using Node.js and Express",
+      "Integrated payment gateway"
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+import projectsArray from "./projects.json";
+
+const projects = projectsArray;
+---
+
+<section class="w-full mx-auto lg:w-[740px] pt-20" id="projects">
+  <h2 class="text-3xl font-bold text-center mb-8">Projects</h2>
+  <ul class="flex flex-wrap justify-center mb-2">
+    {
+      projects && projects.length > 0 ? (
+        projects.map((project) => (
+          <li
+            data-key={project.id}
+            class="m-2 bg-slate-900 p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300"
+          >
+            <ProjectCard project={project} />
+          </li>
+        ))
+      ) : (
+        <p class="text-center text-slate-400">No projects available.</p>
+      )
+    }
+  </ul>
+</section>
