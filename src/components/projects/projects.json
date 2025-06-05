@@ -1,23 +1,50 @@
 [
   {
     "id": 1,
-    "title": "Personal Website",
-    "description": "A responsive website showcasing my skills and experiences.",
+    "title": "Enterprise Web Application",
+    "description": "Led architectural setup and implementation of scalable web application with automated CI/CD pipelines and AWS deployment.",
     "date": "2024",
     "tasks": [
-      "Designed and implemented the UI/UX",
-      "Developed the frontend using HTML, CSS, and JavaScript"
+      "Configured GitHub workflows for automated AWS deployments",
+      "Implemented JWT/OAuth authentication systems",
+      "Optimized deployment times by 40% through automated CI/CD",
+      "Built responsive UI components improving user engagement by 25%"
     ]
   },
   {
     "id": 2,
-    "title": "E-commerce Platform",
-    "description": "A scalable e-commerce platform for online shopping.",
+    "title": "Full-Stack E-commerce Platform",
+    "description": "Developed comprehensive e-commerce solution with payment gateway integration and microservices architecture.",
     "date": "2024",
     "tasks": [
-      "Designed and implemented database schema",
-      "Developed RESTful API using Node.js and Express",
-      "Integrated payment gateway"
+      "Designed and implemented database schema with PostgreSQL",
+      "Developed RESTful APIs using Node.js and Express",
+      "Integrated 15+ third-party APIs including payment gateways",
+      "Implemented security features and performance optimization"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Team Management & Training Platform",
+    "description": "Created comprehensive training platform for full-stack development coaching and student progress tracking.",
+    "date": "2024",
+    "tasks": [
+      "Coached 50+ students in full-stack development concepts",
+      "Developed training materials for JavaScript frameworks",
+      "Built interactive debugging and code review tools",
+      "Implemented agile methodologies and soft skills workshops"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Performance Analytics Dashboard",
+    "description": "Built real-time analytics dashboard for monitoring application performance and deployment metrics.",
+    "date": "2024",
+    "tasks": [
+      "Integrated performance monitoring and analytics",
+      "Created real-time data visualization components",
+      "Implemented automated reporting and alerting systems",
+      "Optimized system performance and user experience"
     ]
   }
 ]

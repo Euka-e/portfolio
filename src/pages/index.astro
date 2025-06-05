@@ -5,14 +5,16 @@ import Presentation from "../components/Presentation.astro";
 import Pills from "../components/Pills.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import Technologies from "../components/Technologies.astro";
 import Projects from "../components/projects/Projects.astro";
+import Achievements from "../components/Achievements.astro";
+import AboutMe from "../components/AboutMe.astro";
+import Contact from "../components/Contact.astro";
 ---
 
 <Layout
-  title="Eric Diaz's Portfolio - Full-Stack Web Developer"
-  description="If you are looking for a full-stack and highly dedicated web developer and programmer to build your next project  or just want to say hi , you've come to the right place."
+  title="Eric Díaz - Full Stack Engineer | Portfolio"
+  description="Full Stack Engineer at Continental Venture Capital. Building robust & user-centric web solutions with expertise in React, Node.js, AWS, and team leadership. Specializing in scalable applications and development process optimization."
 >
   <main>
     <div
@@ -32,11 +34,23 @@ import Projects from "../components/projects/Projects.astro";
       </SectionContainer>
 
       <SectionContainer>
+        <Achievements />
+      </SectionContainer>
+
+      <SectionContainer>
         <Technologies />
       </SectionContainer>
 
       <SectionContainer>
         <Projects />
+      </SectionContainer>
+
+      <SectionContainer>
+        <AboutMe />
+      </SectionContainer>
+
+      <SectionContainer>
+        <Contact />
       </SectionContainer>
     </SectionContainer>
     <!-- <SectionContainer>

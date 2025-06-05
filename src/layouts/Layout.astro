@@ -17,6 +17,14 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap"
+      rel="stylesheet"
+    />
+
     <title>{title}</title>
   </head>
   <body>
@@ -31,6 +39,18 @@ const { title, description } = Astro.props;
     font-family: "Geist Mono", sans-serif;
     scroll-behavior: smooth;
   }
+
+  /* Emoji Support */
+  .emoji,
+  .flag-emoji {
+    font-family: "Noto Color Emoji", "Segoe UI Emoji", "Apple Color Emoji",
+      "Twemoji Mozilla", sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+  }
+
   body {
     background: linear-gradient(180deg, #020021 0%, #02001a 50%, #080053 100%);
     background-attachment: fixed;
@@ -38,10 +58,9 @@ const { title, description } = Astro.props;
     flex-direction: column;
     height: 100vh;
   }
-  @media(prefers-reduced-motion: reduce) {
+  @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
     }
   }
-  
 </style>

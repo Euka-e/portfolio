@@ -1,0 +1,51 @@
+---
+import Badge from './Badge.astro';
+---
+
+<section class="w-full mx-auto lg:w-[740px] pt-20" id="achievements">
+  <h2 class="text-3xl font-bold text-center mb-8">Key Achievements</h2>
+  <div class="grid gap-6 md:grid-cols-2">
+    {
+      [
+        {
+          title: "System Optimization",
+          description: "Reduced deployment times by 40% through automated CI/CD pipelines",
+          icon: "⚡"
+        },
+        {
+          title: "Security Implementation",
+          description: "Implemented JWT/OAuth authentication systems for enterprise applications",
+          icon: "🔒"
+        },
+        {
+          title: "API Integration",
+          description: "Connected 15+ third-party APIs including payment gateways and analytics",
+          icon: "🔗"
+        },
+        {
+          title: "UX Enhancement",
+          description: "Redesigned UI components improving user engagement by 25%",
+          icon: "🎨"
+        },
+        {
+          title: "Team Leadership",
+          description: "Coached 50+ students and mentored team members on best practices",
+          icon: "👥"
+        },
+        {
+          title: "Technical Documentation",
+          description: "Created comprehensive training materials and technical documentation",
+          icon: "📚"
+        }
+      ].map((achievement) => (
+        <div class="bg-slate-900 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+          <div class="flex items-center mb-3">
+            <span class="text-2xl mr-3">{achievement.icon}</span>
+            <h3 class="text-lg font-bold text-white">{achievement.title}</h3>
+          </div>
+          <p class="text-slate-300">{achievement.description}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>
