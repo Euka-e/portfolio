@@ -1,12 +1,11 @@
 <header class="flex items-center py-3 xl:w-[1120px] mx-auto gap-x-10">
   <nav
-    class="flex flex-col md:flex-row gap-x-10 justify-start md:justify-center fixed top-0 left-0 right-0 z-50"
+    class="flex flex-col md:flex-row gap-x-10 justify-start md:justify-center items-center fixed top-0 left-0 right-0 z-50 bg-[#020021]/40 backdrop-blur-md supports-[backdrop-filter]:backdrop-blur h-12 md:h-auto"
   >
     <input type="checkbox" id="menu-toggle" class="hidden" />
-
     <label
       for="menu-toggle"
-      class="md:hidden absolute top-3 left-3 flex justify-center w-8 h-8 p-2 rounded"
+      class="md:hidden absolute left-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-8 h-8 rounded text-white"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +20,11 @@
           stroke-width="2"
           d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
-    </label>    <div class="hidden md:block flex gap-x-10 md:flex md:justify-center p-4 bg-[#020021] text-white font-bold text-lg w-full">
+    </label>
+
+    <div
+      class="hidden md:flex gap-x-10 md:justify-center p-4 text-white font-bold text-lg w-full"
+    >
       <a href="#start">Home</a>
       <a href="#experience">Experience</a>
       <a href="#achievements">Achievements</a>
@@ -29,17 +32,19 @@
       <a href="#projects">Projects</a>
       <a href="#about-me">About me</a>
       <a href="#contact">Contact</a>
-    </div>    <div
+    </div>
+
+    <div
       id="mobile-menu"
-      class="sm:hidden flex flex-col p-0 m-0 absolute top-16 left-0 right-0 w-full bg-lightblue z-50 text-black font-bold"
+      class="sm:hidden flex flex-col p-0 m-0 fixed top-12 left-0 right-0 w-full bg-[#020021]/95 text-white font-bold z-50 max-h-[calc(100dvh-3rem)] overflow-y-auto"
     >
-      <a href="#start" class="block p-4 text-center border-b ">Home</a>
-      <a href="#experience" class="block p-4 text-center border-b">Experience</a>
-      <a href="#achievements" class="block p-4 text-center border-b">Achievements</a>
-      <a href="#technologies" class="block p-4 text-center border-b">Technologies</a>
-      <a href="#projects" class="block p-4 text-center border-b">Projects</a>
-      <a href="#about-me" class="block p-4 text-center border-b">About me</a>
-      <a href="#contact" class="block p-4 text-center border-b">Contact</a>
+      <a href="#start" class="block p-4 text-center">Home</a>
+      <a href="#experience" class="block p-4 text-center">Experience</a>
+      <a href="#achievements" class="block p-4 text-center">Achievements</a>
+      <a href="#technologies" class="block p-4 text-center">Technologies</a>
+      <a href="#projects" class="block p-4 text-center">Projects</a>
+      <a href="#about-me" class="block p-4 text-center">About me</a>
+      <a href="#contact" class="block p-4 text-center">Contact</a>
     </div>
 
     <style>
@@ -49,11 +54,43 @@
       #menu-toggle:checked ~ #mobile-menu {
         display: block;
       }
+
+      :global(#overlay) {
+        display: none;
+      }
+      :global(body:has(#menu-toggle:checked) #overlay) {
+        display: block;
+      }
+
+      :global(body:has(#menu-toggle:checked)) {
+        overflow: hidden;
+        overscroll-behavior: none;
+        touch-action: none;
+      }
+
       @media (max-width: 767px) {
         .hidden-sm-block {
           display: none;
         }
       }
     </style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.getElementById(
+          "menu-toggle"
+        ) as HTMLInputElement | null;
+        document.querySelectorAll("#mobile-menu a").forEach((a) => {
+          a.addEventListener("click", () => {
+            if (toggle) toggle.checked = false;
+          });
+        });
+      });
+    </script>
   </nav>
+  <label
+    id="overlay"
+    for="menu-toggle"
+    class="md:hidden fixed inset-0 bg-black/80 z-40"
+    aria-hidden="true"></label>
 </header>

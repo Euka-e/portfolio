@@ -40,7 +40,6 @@ const { title, description } = Astro.props;
     scroll-behavior: smooth;
   }
 
-  /* Emoji Support */
   .emoji,
   .flag-emoji {
     font-family: "Noto Color Emoji", "Segoe UI Emoji", "Apple Color Emoji",
@@ -57,6 +56,12 @@ const { title, description } = Astro.props;
     display: flex;
     flex-direction: column;
     height: 100vh;
+  }
+
+  body:has(#menu-toggle:checked) {
+    overflow: hidden;
+    overscroll-behavior: none;
+    touch-action: none;
   }
   @media (prefers-reduced-motion: reduce) {
     html {
