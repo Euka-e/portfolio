@@ -17,7 +17,7 @@ const { project } = Astro.props as Props;
   <ul class="flex flex-wrap mb-2">
     {
       project.tasks.map((task: string) => (
-        <li class="w-full text-white-800">✔️{task}</li>
+        <li class="w-full text-slate-300">✔️{task}</li>
       ))
     }
   </ul>
