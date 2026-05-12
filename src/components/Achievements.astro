@@ -1,50 +1,101 @@
----
-import Badge from './Badge.astro';
+﻿---
+const achievementsEN = [
+  {
+    metric: 40,
+    suffix: "%",
+    label: "Deployment reduction",
+    description: "Reduced deployment time through workflow automation and cleaner release pipelines.",
+  },
+  {
+    metric: 60,
+    suffix: "%",
+    label: "Faster product delivery",
+    description: "Cut delivery time for quality product work by moving from fully manual implementation to AI-assisted development workflows.",
+  },
+  {
+    metric: 25,
+    suffix: "%",
+    label: "UX engagement lift",
+    description: "Improved engagement through better component systems, interaction polish, and usability fixes.",
+  },
+  {
+    metric: 50,
+    suffix: "+",
+    label: "Students mentored",
+    description: "Coached developers and students on debugging, delivery habits, and full-stack implementation.",
+  },
+];
+
+const achievementsES = [
+  {
+    metric: 40,
+    suffix: "%",
+    label: "Reducción de despliegues",
+    description: "Reduje tiempos de despliegue mediante automatización de workflows y pipelines de release más limpios.",
+  },
+  {
+    metric: 60,
+    suffix: "%",
+    label: "Entrega de producto más rápida",
+    description: "Recorté tiempos de entrega de trabajo de calidad al pasar de una implementación totalmente manual a workflows de desarrollo asistidos por IA.",
+  },
+  {
+    metric: 25,
+    suffix: "%",
+    label: "Mejora en engagement UX",
+    description: "Mejoré el engagement con mejores sistemas de componentes, más pulido de interacciones y correcciones de usabilidad.",
+  },
+  {
+    metric: 50,
+    suffix: "+",
+    label: "Estudiantes guiados",
+    description: "Acompañé a developers y estudiantes en debugging, hábitos de entrega e implementación full-stack.",
+  },
+];
 ---
 
-<section class="w-full mx-auto lg:w-[740px] pt-20" id="achievements">
-  <h2 class="text-3xl font-bold text-center mb-8 text-[#FFF]">Key Achievements</h2>
-  <div class="grid gap-6 md:grid-cols-2">
+<section class="mx-auto w-full pt-20 lg:w-[740px]" id="achievements">
+  <div class="text-center" data-lang="en" data-animate="fade-up">
+    <p class="mb-3 text-sm uppercase tracking-[0.32em] text-accent-cyan">Impact</p>
+    <h2 class="section-title">Key Achievements</h2>
+  </div>
+  <div class="text-center" data-lang="es" data-animate="fade-up">
+    <p class="mb-3 text-sm uppercase tracking-[0.32em] text-accent-cyan">Impacto</p>
+    <h2 class="section-title">Logros Clave</h2>
+  </div>
+
+  <div class="mt-10 grid gap-4 md:grid-cols-2" data-lang="en">
     {
-      [
-        {
-          title: "System Optimization",
-          description: "Reduced deployment times by 40% through automated CI/CD pipelines",
-          icon: "⚡"
-        },
-        {
-          title: "Security Implementation",
-          description: "Implemented JWT/OAuth authentication systems for enterprise applications",
-          icon: "🔒"
-        },
-        {
-          title: "API Integration",
-          description: "Connected 15+ third-party APIs including payment gateways and analytics",
-          icon: "🔗"
-        },
-        {
-          title: "UX Enhancement",
-          description: "Redesigned UI components improving user engagement by 25%",
-          icon: "🎨"
-        },
-        {
-          title: "Team Leadership",
-          description: "Coached 50+ students and mentored team members on best practices",
-          icon: "👥"
-        },
-        {
-          title: "Technical Documentation",
-          description: "Created comprehensive training materials and technical documentation",
-          icon: "📚"
-        }
-      ].map((achievement) => (
-        <div class="bg-slate-900 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-          <div class="flex items-center mb-3">
-            <span class="text-2xl mr-3">{achievement.icon}</span>
-            <h3 class="text-lg font-bold text-white">{achievement.title}</h3>
-          </div>
-          <p class="text-slate-300">{achievement.description}</p>
-        </div>
+      achievementsEN.map((achievement, index) => (
+        <article
+          class="glass-card spotlight-card rounded-[24px] p-6 transition duration-300 hover:border-accent-purple/40"
+          data-animate="fade-up"
+          style={`--stagger-delay:${index * 70}ms;`}
+        >
+          <p class="text-4xl font-bold text-white sm:text-5xl" data-counter={achievement.metric} data-counter-suffix={achievement.suffix}>
+            0{achievement.suffix}
+          </p>
+          <h3 class="mt-4 text-lg font-semibold text-white">{achievement.label}</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-300">{achievement.description}</p>
+        </article>
+      ))
+    }
+  </div>
+
+  <div class="mt-10 grid gap-4 md:grid-cols-2" data-lang="es">
+    {
+      achievementsES.map((achievement, index) => (
+        <article
+          class="glass-card spotlight-card rounded-[24px] p-6 transition duration-300 hover:border-accent-purple/40"
+          data-animate="fade-up"
+          style={`--stagger-delay:${index * 70}ms;`}
+        >
+          <p class="text-4xl font-bold text-white sm:text-5xl" data-counter={achievement.metric} data-counter-suffix={achievement.suffix}>
+            0{achievement.suffix}
+          </p>
+          <h3 class="mt-4 text-lg font-semibold text-white">{achievement.label}</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-300">{achievement.description}</p>
+        </article>
       ))
     }
   </div>

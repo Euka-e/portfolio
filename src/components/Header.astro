@@ -1,11 +1,69 @@
-<header class="flex items-center py-3 xl:w-[1120px] mx-auto gap-x-10">
+---
+const linksEN = [
+  { href: "#start", label: "Home" },
+  { href: "#experience", label: "Experience" },
+  { href: "#achievements", label: "Achievements" },
+  { href: "#technologies", label: "Technologies" },
+  { href: "#ai-tools", label: "AI Tools" },
+  { href: "#projects", label: "Projects" },
+  { href: "#about-me", label: "About me" },
+  { href: "#contact", label: "Contact" },
+];
+
+const linksES = [
+  { href: "#start", label: "Inicio" },
+  { href: "#experience", label: "Experiencia" },
+  { href: "#achievements", label: "Logros" },
+  { href: "#technologies", label: "Tecnologías" },
+  { href: "#ai-tools", label: "Herramientas IA" },
+  { href: "#projects", label: "Proyectos" },
+  { href: "#about-me", label: "Sobre mí" },
+  { href: "#contact", label: "Contacto" },
+];
+---
+
+<header class="flex w-full items-center gap-x-10 px-4 py-3 xl:mx-auto xl:w-[1120px]">
+  <div class="fixed left-4 right-4 top-3 z-50 hidden md:block">
+    <nav
+      class="glass-card absolute left-1/2 top-0 flex h-12 -translate-x-1/2 items-center justify-center rounded-[20px] px-6 xl:w-[980px]"
+    >
+      <div class="flex items-center justify-center gap-x-6 text-sm font-medium text-white lg:gap-x-7 lg:text-[15px]">
+        <div class="contents" data-lang="en">
+          {
+            linksEN.map((link) => (
+              <a href={link.href} class="whitespace-nowrap transition hover:text-accent-cyan">
+                {link.label}
+              </a>
+            ))
+          }
+        </div>
+        <div class="contents" data-lang="es">
+          {
+            linksES.map((link) => (
+              <a href={link.href} class="whitespace-nowrap transition hover:text-accent-cyan">
+                {link.label}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </nav>
+    <button
+      type="button"
+      data-language-toggle
+      class="glass-card absolute right-0 top-0 flex h-12 min-w-[58px] items-center justify-center rounded-[16px] px-4 text-xs font-semibold tracking-[0.22em] text-slate-200 transition hover:border-white/20 hover:text-white"
+    >
+      <span data-language-label>EN</span>
+    </button>
+  </div>
+
   <nav
-    class="flex flex-col md:flex-row gap-x-10 justify-start md:justify-center items-center fixed top-0 left-0 right-0 z-50 bg-[#020021]/40 backdrop-blur-md supports-[backdrop-filter]:backdrop-blur h-12 md:h-auto"
+    class="glass-card fixed left-4 right-4 top-3 z-50 flex h-14 flex-col items-center justify-start rounded-[20px] md:hidden"
   >
     <input type="checkbox" id="menu-toggle" class="hidden" />
     <label
       for="menu-toggle"
-      class="md:hidden absolute left-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-8 h-8 rounded text-white"
+      class="absolute left-3 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-xl text-white md:hidden"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -21,68 +79,65 @@
           d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
     </label>
-
-    <div
-      class="hidden md:flex gap-x-10 md:justify-center p-4 text-white font-bold text-lg w-full"
-    >
-      <a href="#start">Home</a>
-      <a href="#experience">Experience</a>
-      <a href="#achievements">Achievements</a>
-      <a href="#technologies">Technologies</a>
-      <a href="#projects">Projects</a>
-      <a href="#about-me">About me</a>
-      <a href="#contact">Contact</a>
-    </div>
-
     <div
       id="mobile-menu"
-      class="sm:hidden flex flex-col p-0 m-0 fixed top-12 left-0 right-0 w-full bg-[#020021]/95 text-white font-bold z-50 max-h-[calc(100dvh-3rem)] overflow-y-auto"
+      class="glass-card fixed left-4 right-4 top-16 z-50 m-0 hidden max-h-[calc(100dvh-5rem)] flex-col overflow-y-auto rounded-[20px] p-2 text-white sm:hidden"
     >
-      <a href="#start" class="block p-4 text-center">Home</a>
-      <a href="#experience" class="block p-4 text-center">Experience</a>
-      <a href="#achievements" class="block p-4 text-center">Achievements</a>
-      <a href="#technologies" class="block p-4 text-center">Technologies</a>
-      <a href="#projects" class="block p-4 text-center">Projects</a>
-      <a href="#about-me" class="block p-4 text-center">About me</a>
-      <a href="#contact" class="block p-4 text-center">Contact</a>
+      <div data-lang="en">
+        {
+          linksEN.map((link) => (
+            <a href={link.href} class="block rounded-xl p-4 text-center font-bold hover:bg-white/5">
+              {link.label}
+            </a>
+          ))
+        }
+      </div>
+      <div data-lang="es">
+        {
+          linksES.map((link) => (
+            <a href={link.href} class="block rounded-xl p-4 text-center font-bold hover:bg-white/5">
+              {link.label}
+            </a>
+          ))
+        }
+      </div>
+      <button
+        type="button"
+        data-language-toggle
+        class="mt-2 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-center text-sm font-semibold tracking-[0.22em] text-slate-200"
+      >
+        <span data-language-label>EN</span>
+      </button>
     </div>
-
     <style>
-      #mobile-menu {
-        display: none;
-      }
       #menu-toggle:checked ~ #mobile-menu {
-        display: block;
+        display: flex;
       }
 
       :global(#overlay) {
         display: none;
       }
+
       :global(body:has(#menu-toggle:checked) #overlay) {
         display: block;
       }
-
-      :global(body:has(#menu-toggle:checked)) {
-        overflow: hidden;
-        overscroll-behavior: none;
-        touch-action: none;
-      }
-
-      @media (max-width: 767px) {
-        .hidden-sm-block {
-          display: none;
-        }
-      }
     </style>
-
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        const toggle = document.getElementById(
-          "menu-toggle"
-        ) as HTMLInputElement | null;
-        document.querySelectorAll("#mobile-menu a").forEach((a) => {
-          a.addEventListener("click", () => {
-            if (toggle) toggle.checked = false;
+        const toggle = document.getElementById("menu-toggle");
+        if (!(toggle instanceof HTMLInputElement)) {
+          return;
+        }
+
+        document.querySelectorAll("#mobile-menu a").forEach((anchor) => {
+          anchor.addEventListener("click", () => {
+            toggle.checked = false;
+          });
+        });
+
+        document.querySelectorAll("#mobile-menu [data-language-toggle]").forEach((button) => {
+          button.addEventListener("click", () => {
+            toggle.checked = false;
           });
         });
       });
@@ -91,6 +146,6 @@
   <label
     id="overlay"
     for="menu-toggle"
-    class="md:hidden fixed inset-0 bg-black/80 z-40"
+    class="fixed inset-0 z-40 bg-black/80 md:hidden"
     aria-hidden="true"></label>
 </header>

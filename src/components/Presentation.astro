@@ -1,27 +1,142 @@
----
-import Badge from "./Badge.astro";
+﻿---
+import SocialButton from "./SocialButton.astro";
+import LinkedInIcon from "../icons/LinkedIn.astro";
+import GitHubIcon from "../icons/GitHub.astro";
+import MailIcon from "../icons/Mail.astro";
+
+const presentationCopyEN = {
+  eyebrow: "Full-stack engineering",
+  greeting: "Hi, I'm",
+  tagline:
+    "Full-stack developer with 5+ years building scalable products. I leverage AI tools to ship faster and at a higher quality standard.",
+  primaryCta: "Hire me ->",
+  secondaryCta: "See my work v",
+  socialMail: "Mail",
+  imageNote: "Current focus: product engineering, AI workflows, and team velocity",
+};
+
+const presentationCopyES = {
+  eyebrow: "Ingeniero full-stack",
+  greeting: "Hola, soy",
+  tagline:
+    "Desarrollador full-stack con más de 5 años construyendo productos escalables. Aprovecho herramientas de IA para entregar más rápido y con un estándar de calidad más alto.",
+  primaryCta: "Contrátame ->",
+  secondaryCta: "Ver proyectos v",
+  socialMail: "Correo",
+  imageNote: "Enfoque actual: product engineering, workflows de IA y velocidad de equipo",
+};
 ---
 
-<img
-  class="rounded-full size-24 mb-5 mx-auto"
-  src="https://avatars.githubusercontent.com/u/91031571?s=400&u=384c47896fa89b09d88ecd3042b4cc893dd07aea&v=4"
-  alt="Eric photo"
-/>
-<h1 class="text-white text-2xl sm:text-5xl font-bold flex flex-col sm:flex-row items-center justify-center text-center gap-x-4 pb-4">
-  <span class="min-w-[187.8px] flex flex-wrap">Hi, I'm Eric!</span><a
-    href="https://www.linkedin.com/in/eric-diaz-euka/"
-    target="_blank"
-    rel="noopener"
-    class="flex justify-center items-center"
-  >
-    <Badge>Available for hire</Badge>
-</a
-  >
-</h1>
-<h2 class="text-xl text-wrap text-white pb-4 pl-10 pr-3">  <span class="text-red-500 font-bold">Full Stack Engineer</span> from
-  <span class="text-lightblue font-bold text-lg">ar</span><span
-    class="text-white font-bold text-lg">ge</span
-  ><span class="text-yellow font-bold text-lg">n</span><span
-    class="text-white font-bold text-lg">ti</span
-  ><span class="text-lightblue font-bold text-lg">na</span>🧉. I transform complex challenges into elegant solutions through clean code and collaborative innovation. Passionate about optimizing user experiences while staying at technology's cutting edge.
-</h2>
+<section class="mx-auto grid w-full max-w-[1120px] items-center gap-10 pt-4 lg:grid-cols-[1.1fr_0.72fr]">
+  <div class="order-2 text-center lg:order-1 lg:text-left">
+    <div data-lang="en">
+      <p class="mb-4 text-sm uppercase tracking-[0.35em] text-accent-cyan" data-animate="fade-up">
+        {presentationCopyEN.eyebrow}
+      </p>
+      <h1
+        class="max-w-4xl text-4xl font-bold tracking-[-0.05em] text-white sm:text-6xl lg:max-w-[720px]"
+        data-animate="fade-up"
+      >
+        {presentationCopyEN.greeting} <span class="gradient-text">Eric David Diaz</span>
+      </h1>
+      <p
+        class="section-copy mt-6 max-w-3xl text-base sm:text-lg lg:max-w-[620px]"
+        data-animate="fade-up"
+        style="--stagger-delay: 160ms;"
+      >
+        {presentationCopyEN.tagline}
+      </p>
+    </div>
+
+    <div data-lang="es">
+      <p class="mb-4 text-sm uppercase tracking-[0.35em] text-accent-cyan" data-animate="fade-up">
+        {presentationCopyES.eyebrow}
+      </p>
+      <h1
+        class="max-w-4xl text-4xl font-bold tracking-[-0.05em] text-white sm:text-6xl lg:max-w-[720px]"
+        data-animate="fade-up"
+      >
+        {presentationCopyES.greeting} <span class="gradient-text">Eric David Diaz</span>
+      </h1>
+      <p
+        class="section-copy mt-6 max-w-3xl text-base sm:text-lg lg:max-w-[620px]"
+        data-animate="fade-up"
+        style="--stagger-delay: 160ms;"
+      >
+        {presentationCopyES.tagline}
+      </p>
+    </div>
+
+    <p
+      class="mt-5 min-h-[2.5rem] text-xl font-medium text-slate-200 sm:text-2xl"
+      id="typewriter-audio-zone"
+      data-animate="fade-up"
+      style="--stagger-delay: 90ms;"
+    >
+        <span
+        data-typewriter
+        data-phrases-en="Full Stack Engineer|AI-Powered Developer|Team Leader"
+        data-phrases-es="Ingeniero Full Stack|Desarrollador Potenciado por IA|Líder de Equipo"></span><span
+        class="typewriter-cursor">|</span>
+    </p>
+
+    <div
+      class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start"
+      data-animate="fade-up"
+      style="--stagger-delay: 230ms;"
+    >
+      <a
+        href="#contact"
+        class="glow-btn rounded-xl bg-accent-gradient px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5"
+      >
+        <span data-lang="en">{presentationCopyEN.primaryCta}</span>
+        <span data-lang="es">{presentationCopyES.primaryCta}</span>
+      </a>
+      <a
+        href="#projects"
+        class="glass-card rounded-xl px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-white/20"
+      >
+        <span data-lang="en">{presentationCopyEN.secondaryCta}</span>
+        <span data-lang="es">{presentationCopyES.secondaryCta}</span>
+      </a>
+    </div>
+
+    <div
+      class="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start"
+      data-animate="fade-up"
+      style="--stagger-delay: 300ms;"
+    >
+      <SocialButton href="https://www.linkedin.com/in/eric-diaz-euka/">
+        <LinkedInIcon class="size-4" />
+        LinkedIn
+      </SocialButton>
+      <SocialButton href="https://github.com/Euka-e">
+        <GitHubIcon class="size-5" />
+        GitHub
+      </SocialButton>
+      <SocialButton href="mailto:ericdiazeuka@gmail.com">
+        <MailIcon class="size-5" />
+        <span data-lang="en">{presentationCopyEN.socialMail}</span>
+        <span data-lang="es">{presentationCopyES.socialMail}</span>
+      </SocialButton>
+    </div>
+  </div>
+
+  <div class="order-1 mx-auto w-full max-w-[360px] lg:order-2" data-animate="fade-in">
+    <div class="relative">
+      <div class="absolute -inset-4 rounded-[24px] border border-accent-cyan/10 bg-[linear-gradient(135deg,rgba(139,92,246,0.14),rgba(6,182,212,0.04))]"></div>
+      <div class="glass-card relative overflow-hidden rounded-[24px] p-3">
+        <img
+          src="/profile-recent.jpg"
+          alt="Eric David Diaz portrait"
+          class="h-[480px] w-full rounded-[18px] object-cover object-top"
+        />
+        <div class="absolute bottom-6 left-6 right-6 rounded-xl border border-white/10 bg-[#090915]/82 px-4 py-3 backdrop-blur-sm">
+          <p class="text-xs uppercase tracking-[0.28em] text-accent-cyan">Eric David Diaz</p>
+          <p class="mt-2 text-sm text-slate-200" data-lang="en">{presentationCopyEN.imageNote}</p>
+          <p class="mt-2 text-sm text-slate-200" data-lang="es">{presentationCopyES.imageNote}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

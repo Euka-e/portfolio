@@ -1,60 +1,128 @@
+﻿---
+const aboutMeCopyEN = {
+  eyebrow: "Profile",
+  title: "About Me",
+  heading: "What drives my work",
+  intro:
+    "I'm a full-stack engineer with 5+ years of experience building scalable digital products across startups, agencies, and product teams. I currently work at Bixlabs, where I focus on shipping polished solutions with strong technical execution, thoughtful UX, and pragmatic delivery speed.",
+  aiParagraph:
+    "I use AI as a force multiplier across discovery, implementation, QA, and documentation. That workflow helps me move faster, but the standard stays the same: understand the tradeoffs, validate the output, and ship code that is production-ready.",
+  topSkills: "Top skills",
+  workflowTitle: "AI workflow",
+  workflowItems: [
+    "Research and solution framing before implementation.",
+    "Faster iteration on UI, API contracts, and edge cases.",
+    "Validation through code review, testing, and manual QA.",
+  ],
+  educationTitle: "Education & growth",
+  educationItems: [
+    "Henry Full Stack Bootcamp, 800+ training hours.",
+    "Argentina Programa, Angular and Java path.",
+    "EF SET English, C2 Proficient.",
+    "Design Thinking Certificate, Certiprof.",
+  ],
+};
+
+const aboutMeCopyES = {
+  eyebrow: "Perfil",
+  title: "Sobre Mí",
+  heading: "Lo que impulsa mi trabajo",
+  intro:
+    "Soy ingeniero full-stack con más de 5 años de experiencia construyendo productos digitales escalables en startups, agencias y equipos de producto. Actualmente trabajo en Bixlabs, donde me enfoco en entregar soluciones pulidas con ejecución técnica fuerte, buen criterio UX y velocidad pragmática.",
+  aiParagraph:
+    "Uso IA como multiplicador de fuerza en discovery, implementación, QA y documentación. Ese workflow me ayuda a moverme más rápido, pero el estándar sigue siendo el mismo: entender los tradeoffs, validar el resultado y entregar código listo para producción.",
+  topSkills: "Habilidades clave",
+  workflowTitle: "Workflow IA",
+  workflowItems: [
+    "Investigación y encuadre de solución antes de implementar.",
+    "Iteración más rápida sobre UI, contratos de API y edge cases.",
+    "Validación mediante code review, testing y QA manual.",
+  ],
+  educationTitle: "Educación y crecimiento",
+  educationItems: [
+    "Henry Full Stack Bootcamp, más de 800 horas de formación.",
+    "Argentina Programa, recorrido Angular y Java.",
+    "EF SET English, C2 Proficient.",
+    "Certificado en Design Thinking, Certiprof.",
+  ],
+};
 ---
 
----
+<section class="mx-auto w-full pt-20 lg:w-[740px]" id="about-me">
+  <div class="text-center" data-lang="en" data-animate="fade-up">
+    <p class="mb-3 text-sm uppercase tracking-[0.32em] text-accent-cyan">{aboutMeCopyEN.eyebrow}</p>
+    <h2 class="section-title">{aboutMeCopyEN.title}</h2>
+  </div>
+  <div class="text-center" data-lang="es" data-animate="fade-up">
+    <p class="mb-3 text-sm uppercase tracking-[0.32em] text-accent-cyan">{aboutMeCopyES.eyebrow}</p>
+    <h2 class="section-title">{aboutMeCopyES.title}</h2>
+  </div>
 
-<section class="w-full mx-auto lg:w-[740px] pt-20" id="about-me">
-  <h2 class="text-3xl font-bold text-center mb-8 text-[#FFF]">About Me</h2>
-  <div class="bg-slate-900 p-8 rounded-lg shadow-md">
-    <div class="text-center mb-6">
-      <h3 class="text-xl font-bold text-[#FFF] mb-4">What Drives Me</h3>
-      <blockquote class="text-lg italic text-slate-300 leading-relaxed">
-        "Transforming complex challenges into elegant solutions through clean
-        code and collaborative innovation. Passionate about optimizing user
-        experiences while staying at technology's cutting edge."
-      </blockquote>
-    </div>
-
-    <div class="grid gap-6 md:grid-cols-2 mt-8">
+  <div class="glass-card mt-10 rounded-[28px] p-8 md:p-10" data-lang="en" data-animate="fade-up">
+    <div class="grid gap-8 md:grid-cols-[1.2fr_0.8fr]">
       <div>
-        <h4 class="text-lg font-bold text-white mb-3">🎓 Education & Growth</h4>
-        <ul class="text-slate-300 space-y-2">
-          <li>
-            • <strong>Full Stack Web Developer:</strong> 800+ hours intensive full-stack training at Henry Bootcamp
-          </li>
-          <li>
-            • <strong>Full Stack Web Developer (Angular - Java):</strong> Argentina Programa (2021)
-          </li>
-          <li>
-            • <strong>Bachelor of Information Technology:</strong> ESRN 19 (2017-2021)
-          </li>
-          <li>
-            • <strong>Design Thinking Certificate</strong> Certiprof (2025)
-          </li>
-          <li>• <strong>EF SET English:</strong> C2 Proficient (72/100)</li>
-        </ul>
+        <h3 class="text-2xl font-semibold text-white">{aboutMeCopyEN.heading}</h3>
+        <p class="section-copy mt-5">{aboutMeCopyEN.intro}</p>
+        <p class="section-copy mt-4">{aboutMeCopyEN.aiParagraph}</p>
+        <div class="mt-8">
+          <p class="text-sm uppercase tracking-[0.26em] text-slate-400">{aboutMeCopyEN.topSkills}</p>
+          <div class="mt-4 flex flex-wrap gap-3 text-sm text-white">
+            <span class="glass-card rounded-full px-4 py-2">Prisma</span>
+            <span class="glass-card rounded-full px-4 py-2">Microservices</span>
+            <span class="glass-card rounded-full px-4 py-2">Java</span>
+            <span class="glass-card rounded-full px-4 py-2">System Design</span>
+            <span class="glass-card rounded-full px-4 py-2">CI/CD</span>
+          </div>
+        </div>
       </div>
-
-      <div>
-        <h4 class="text-lg font-bold text-white mb-3">💡 Professional Focus</h4>
-        <ul class="text-slate-300 space-y-2">
-          <li>• Team Leadership & Mentoring</li>
-          <li>• System Architecture & Optimization</li>
-          <li>• DevOps & CI/CD Implementation</li>
-          <li>• User Experience Enhancement</li>
-          <li>• Clean Code & Best Practices</li>
-        </ul>
+      <div class="space-y-6">
+        <div class="rounded-[24px] border border-white/10 bg-white/5 p-5">
+          <p class="text-sm uppercase tracking-[0.26em] text-slate-400">{aboutMeCopyEN.workflowTitle}</p>
+          <ul class="mt-4 space-y-3 text-sm leading-6 text-slate-300">
+            {aboutMeCopyEN.workflowItems.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <div class="rounded-[24px] border border-white/10 bg-white/5 p-5">
+          <p class="text-sm uppercase tracking-[0.26em] text-slate-400">{aboutMeCopyEN.educationTitle}</p>
+          <ul class="mt-4 space-y-3 text-sm leading-6 text-slate-300">
+            {aboutMeCopyEN.educationItems.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
       </div>
     </div>
+  </div>
 
-    <div class="mt-8 text-center">
-      <p class="text-slate-300 leading-relaxed">
-        Currently working on <strong class="text-white"
-          >independent projects</strong
-        >, focusing on building scalable applications, exploring new
-        technologies, and enhancing my skills. My journey from intensive
-        bootcamp training to leading projects has reinforced my passion for
-        continuous learning and innovation.
-      </p>
+  <div class="glass-card mt-10 rounded-[28px] p-8 md:p-10" data-lang="es" data-animate="fade-up">
+    <div class="grid gap-8 md:grid-cols-[1.2fr_0.8fr]">
+      <div>
+        <h3 class="text-2xl font-semibold text-white">{aboutMeCopyES.heading}</h3>
+        <p class="section-copy mt-5">{aboutMeCopyES.intro}</p>
+        <p class="section-copy mt-4">{aboutMeCopyES.aiParagraph}</p>
+        <div class="mt-8">
+          <p class="text-sm uppercase tracking-[0.26em] text-slate-400">{aboutMeCopyES.topSkills}</p>
+          <div class="mt-4 flex flex-wrap gap-3 text-sm text-white">
+            <span class="glass-card rounded-full px-4 py-2">Prisma</span>
+            <span class="glass-card rounded-full px-4 py-2">Microservices</span>
+            <span class="glass-card rounded-full px-4 py-2">Java</span>
+            <span class="glass-card rounded-full px-4 py-2">System Design</span>
+            <span class="glass-card rounded-full px-4 py-2">CI/CD</span>
+          </div>
+        </div>
+      </div>
+      <div class="space-y-6">
+        <div class="rounded-[24px] border border-white/10 bg-white/5 p-5">
+          <p class="text-sm uppercase tracking-[0.26em] text-slate-400">{aboutMeCopyES.workflowTitle}</p>
+          <ul class="mt-4 space-y-3 text-sm leading-6 text-slate-300">
+            {aboutMeCopyES.workflowItems.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <div class="rounded-[24px] border border-white/10 bg-white/5 p-5">
+          <p class="text-sm uppercase tracking-[0.26em] text-slate-400">{aboutMeCopyES.educationTitle}</p>
+          <ul class="mt-4 space-y-3 text-sm leading-6 text-slate-300">
+            {aboutMeCopyES.educationItems.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>

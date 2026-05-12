@@ -1,50 +1,35 @@
 [
   {
     "id": 1,
-    "title": "Enterprise Web Application",
-    "description": "Led architectural setup and implementation of scalable web application with automated CI/CD pipelines and AWS deployment.",
+    "title": "Investment Workflow Platform",
+    "description": "Product work for a financing platform focused on improving how entrepreneurs and investors interact across project evaluation and investment workflows.",
     "date": "2024",
     "tasks": [
-      "Configured GitHub workflows for automated AWS deployments",
-      "Implemented JWT/OAuth authentication systems",
-      "Optimized deployment times by 40% through automated CI/CD",
-      "Built responsive UI components improving user engagement by 25%"
+      "Built frontend and backend features for the investment lifecycle",
+      "Improved clarity across project evaluation and operational flows",
+      "Collaborated on implementation quality inside a real product environment"
     ]
   },
   {
     "id": 2,
-    "title": "Full-Stack E-commerce Platform",
-    "description": "Developed comprehensive e-commerce solution with payment gateway integration and microservices architecture.",
-    "date": "2024",
+    "title": "Performance Analytics Dashboard",
+    "description": "Dashboard-oriented work for monitoring releases, product behavior, and operational visibility in fast-moving teams.",
+    "date": "2025",
     "tasks": [
-      "Designed and implemented database schema with PostgreSQL",
-      "Developed RESTful APIs using Node.js and Express",
-      "Integrated 15+ third-party APIs including payment gateways",
-      "Implemented security features and performance optimization"
+      "Structured analytics views for clearer product and deployment insights",
+      "Improved reporting workflows and decision-making visibility",
+      "Focused on usability, responsiveness, and maintainable frontend architecture"
     ]
   },
   {
     "id": 3,
-    "title": "Team Management & Training Platform",
-    "description": "Created comprehensive training platform for full-stack development coaching and student progress tracking.",
+    "title": "Learning and Mentorship Platform",
+    "description": "Training-oriented product and support workflows built around coaching, debugging guidance, and developer enablement.",
     "date": "2024",
     "tasks": [
-      "Coached 50+ students in full-stack development concepts",
-      "Developed training materials for JavaScript frameworks",
-      "Built interactive debugging and code review tools",
-      "Implemented agile methodologies and soft skills workshops"
-    ]
-  },
-  {
-    "id": 4,
-    "title": "Performance Analytics Dashboard",
-    "description": "Built real-time analytics dashboard for monitoring application performance and deployment metrics.",
-    "date": "2024",
-    "tasks": [
-      "Integrated performance monitoring and analytics",
-      "Created real-time data visualization components",
-      "Implemented automated reporting and alerting systems",
-      "Optimized system performance and user experience"
+      "Created materials and guided learning paths for full-stack topics",
+      "Supported debugging and review workflows for junior developers and students",
+      "Connected product thinking with practical engineering coaching"
     ]
   }
 ]

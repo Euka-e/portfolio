@@ -1,55 +1,357 @@
----
+﻿---
 import ReactIcon from "../icons/technologies/react.astro";
 import NodeIcon from "../icons/technologies/node.astro";
 import TSIcon from "../icons/technologies/typescript.astro";
 import NextIcon from "../icons/technologies/next.astro";
-import JSIcon from "../icons/technologies/javascript.astro";
 import DockerIcon from "../icons/technologies/docker.astro";
 import NestIcon from "../icons/technologies/nest.astro";
 import PostgreIcon from "../icons/technologies/postgresql.astro";
 import MongoIcon from "../icons/technologies/mongo.astro";
-import PostmanIcon from "../icons/technologies/postman.astro";
 import GitIcon from "../icons/technologies/git.astro";
 import KubernetesIcon from "../icons/technologies/kubernetes.astro";
-import ScrumIcon from "../icons/technologies/scrum.astro";
-import AstroIcon from "../icons/technologies/astro.astro";
 import MySQLIcon from "../icons/technologies/mysql.astro";
-import FigmaIcon from "../icons/technologies/figma.astro";
-import JiraIcon from "../icons/technologies/jira.astro";
-import ReduxIcon from "../icons/technologies/redux.astro";
 import AwsIcon from "../icons/technologies/aws.astro";
+import PrismaIcon from "../icons/technologies/prisma.astro";
+import JavaIcon from "../icons/technologies/java.astro";
+import JavascriptIcon from "../icons/technologies/javascript.astro";
+import AstroIcon from "../icons/technologies/astro.astro";
+import ReduxIcon from "../icons/technologies/redux.astro";
+import JiraIcon from "../icons/technologies/jira.astro";
+import FigmaIcon from "../icons/technologies/figma.astro";
+import PostmanIcon from "../icons/technologies/postman.astro";
+import ScrumIcon from "../icons/technologies/scrum.astro";
+import AngularIcon from "../icons/technologies/angular.astro";
+import ExpressIcon from "../icons/technologies/express.astro";
+
+const PAGE_SIZE = 4;
+type TechnologyTool = {
+  name: string;
+  icon: any;
+};
+
+const chunkTools = (tools: TechnologyTool[]) => {
+  const pages: Array<Array<TechnologyTool | null>> = [];
+
+  for (let index = 0; index < tools.length; index += PAGE_SIZE) {
+    const page: Array<TechnologyTool | null> = [...tools.slice(index, index + PAGE_SIZE)];
+
+    while (page.length < PAGE_SIZE) {
+      page.push(null);
+    }
+
+    pages.push(page);
+  }
+
+  return pages;
+};
+
+const categoriesEN = [
+  {
+    title: "Frontend",
+    tools: [
+      { name: "React", icon: ReactIcon },
+      { name: "Next.js", icon: NextIcon },
+      { name: "TypeScript", icon: TSIcon },
+      { name: "JavaScript", icon: JavascriptIcon },
+      { name: "Angular", icon: AngularIcon },
+      { name: "Astro", icon: AstroIcon },
+      { name: "Redux", icon: ReduxIcon },
+    ],
+  },
+  {
+    title: "Backend",
+    tools: [
+      { name: "Node.js", icon: NodeIcon },
+      { name: "Express", icon: ExpressIcon },
+      { name: "NestJS", icon: NestIcon },
+      { name: "Prisma", icon: PrismaIcon },
+      { name: "Java", icon: JavaIcon },
+      { name: "MongoDB", icon: MongoIcon },
+      { name: "PostgreSQL", icon: PostgreIcon },
+      { name: "MySQL", icon: MySQLIcon },
+    ],
+  },
+  {
+    title: "Cloud",
+    tools: [
+      { name: "AWS", icon: AwsIcon },
+      { name: "Docker", icon: DockerIcon },
+      { name: "Kubernetes", icon: KubernetesIcon },
+      { name: "Git", icon: GitIcon },
+    ],
+  },
+  {
+    title: "Tools",
+    tools: [
+      { name: "Postman", icon: PostmanIcon },
+      { name: "Jira", icon: JiraIcon },
+      { name: "Figma", icon: FigmaIcon },
+      { name: "Scrum", icon: ScrumIcon },
+    ],
+  },
+].map((category) => ({
+  ...category,
+  pages: chunkTools(category.tools),
+}));
+
+const categoriesES = [
+  { title: "Frontend", tools: categoriesEN[0].tools },
+  { title: "Backend", tools: categoriesEN[1].tools },
+  { title: "Cloud", tools: categoriesEN[2].tools },
+  { title: "Herramientas", tools: categoriesEN[3].tools },
+].map((category) => ({
+  ...category,
+  pages: chunkTools(category.tools),
+}));
 ---
 
-<section class="w-full mx-auto lg:w-[740px] pt-20" id="technologies">
-  <h2 class="text-3xl font-bold text-center text-[#FFF]">Technologies</h2>
-  <ul class="flex flex-wrap justify-center mb-2 gap-4 px-7 mt-8">
+<section class="mx-auto w-full pt-20 lg:w-[1120px]" id="technologies">
+  <div class="text-center" data-lang="en" data-animate="fade-up">
+    <p class="mb-3 text-sm uppercase tracking-[0.32em] text-accent-cyan">Stack</p>
+    <h2 class="section-title">Technologies</h2>
+  </div>
+  <div class="text-center" data-lang="es" data-animate="fade-up">
+    <p class="mb-3 text-sm uppercase tracking-[0.32em] text-accent-cyan">Stack</p>
+    <h2 class="section-title">Tecnologías</h2>
+  </div>
+
+  <div class="mt-10 space-y-8" data-lang="en">
     {
-      [
-        { name: "React", icon: <ReactIcon /> },
-        { name: "Next.js", icon: <NextIcon /> },
-        { name: "Astro", icon: <AstroIcon /> },
-        { name: "JavaScript", icon: <JSIcon /> },
-        { name: "TypeScript", icon: <TSIcon /> },
-        { name: "Node.js", icon: <NodeIcon /> },
-        { name: "Docker", icon: <DockerIcon /> },
-        { name: "NestJS", icon: <NestIcon /> },
-        { name: "PostgreSQL", icon: <PostgreIcon /> },
-        { name: "MongoDB", icon: <MongoIcon /> },
-        { name: "MySQL", icon: <MySQLIcon /> },
-        { name: "Postman", icon: <PostmanIcon /> },
-        { name: "Git", icon: <GitIcon /> },
-        { name: "Kubernetes", icon: <KubernetesIcon /> },
-        { name: "Scrum", icon: <ScrumIcon /> },
-        { name: "Figma", icon: <FigmaIcon /> },
-        { name: "Jira", icon: <JiraIcon /> },
-        { name: "Redux", icon: <ReduxIcon /> },
-        { name: "AWS", icon: <AwsIcon /> }
-      ].map((tech) => (
-        <li class="flex flex-col items-center size-[100px] bg-white/5 rounded-md p-2">
-          {tech.icon}
-          <p class="text-slate-300 text-center">{tech.name}</p>
-        </li>
+      categoriesEN.map((category, categoryIndex) => (
+        <div class="tech-category space-y-3" data-animate="fade-up" style={`--stagger-delay:${categoryIndex * 80}ms;`}>
+          <div class="tech-toolbar flex items-center justify-between gap-3">
+            <p class="text-xs uppercase tracking-[0.32em] text-slate-400">{category.title}</p>
+            <div class="flex gap-2">
+              <button
+                type="button"
+                class="glass-card tech-page-button rounded-xl px-3 py-2 text-sm text-white"
+                data-page-target={`tech-en-${categoryIndex}`}
+                data-page-direction="left"
+                aria-disabled="true"
+                aria-label={`Previous ${category.title} page`}
+              >
+                &larr;
+              </button>
+              <button
+                type="button"
+                class="glass-card tech-page-button rounded-xl px-3 py-2 text-sm text-white"
+                data-page-target={`tech-en-${categoryIndex}`}
+                data-page-direction="right"
+                aria-disabled={category.pages.length > 1 ? "false" : "true"}
+                aria-label={`Next ${category.title} page`}
+              >
+                &rarr;
+              </button>
+            </div>
+          </div>
+          <div class="tech-viewport overflow-hidden">
+            <div id={`tech-en-${categoryIndex}`} class="tech-track flex" data-page="0" data-page-count={category.pages.length}>
+              {
+                category.pages.map((page) => (
+                  <div class="tech-page grid min-w-full grid-cols-2 gap-4 lg:grid-cols-4">
+                    {
+                      page.map((tool: TechnologyTool | null) => {
+                        if (!tool) {
+                          return <div class="tech-empty-slot" aria-hidden="true"></div>;
+                        }
+
+                        const Icon = tool.icon;
+                        return (
+                          <article class="glass-card spotlight-card tech-card rounded-[18px] p-5 text-center transition duration-300 hover:border-accent-purple/40">
+                            <div class="tech-icon-box">
+                              <Icon />
+                            </div>
+                            <h3 class="mt-4 text-sm font-semibold text-white">{tool.name}</h3>
+                          </article>
+                        );
+                      })
+                    }
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
       ))
     }
-  </ul>
+  </div>
+
+  <div class="mt-10 space-y-8" data-lang="es">
+    {
+      categoriesES.map((category, categoryIndex) => (
+        <div class="tech-category space-y-3" data-animate="fade-up" style={`--stagger-delay:${categoryIndex * 80}ms;`}>
+          <div class="tech-toolbar flex items-center justify-between gap-3">
+            <p class="text-xs uppercase tracking-[0.32em] text-slate-400">{category.title}</p>
+            <div class="flex gap-2">
+              <button
+                type="button"
+                class="glass-card tech-page-button rounded-xl px-3 py-2 text-sm text-white"
+                data-page-target={`tech-es-${categoryIndex}`}
+                data-page-direction="left"
+                aria-disabled="true"
+                aria-label={`Página anterior de ${category.title}`}
+              >
+                &larr;
+              </button>
+              <button
+                type="button"
+                class="glass-card tech-page-button rounded-xl px-3 py-2 text-sm text-white"
+                data-page-target={`tech-es-${categoryIndex}`}
+                data-page-direction="right"
+                aria-disabled={category.pages.length > 1 ? "false" : "true"}
+                aria-label={`Página siguiente de ${category.title}`}
+              >
+                &rarr;
+              </button>
+            </div>
+          </div>
+          <div class="tech-viewport overflow-hidden">
+            <div id={`tech-es-${categoryIndex}`} class="tech-track flex" data-page="0" data-page-count={category.pages.length}>
+              {
+                category.pages.map((page) => (
+                  <div class="tech-page grid min-w-full grid-cols-2 gap-4 lg:grid-cols-4">
+                    {
+                      page.map((tool: TechnologyTool | null) => {
+                        if (!tool) {
+                          return <div class="tech-empty-slot" aria-hidden="true"></div>;
+                        }
+
+                        const Icon = tool.icon;
+                        return (
+                          <article class="glass-card spotlight-card tech-card rounded-[18px] p-5 text-center transition duration-300 hover:border-accent-purple/40">
+                            <div class="tech-icon-box">
+                              <Icon />
+                            </div>
+                            <h3 class="mt-4 text-sm font-semibold text-white">{tool.name}</h3>
+                          </article>
+                        );
+                      })
+                    }
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <style>
+    .tech-track {
+      transition: transform 0.45s ease;
+    }
+
+    .tech-page {
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .tech-toolbar {
+      width: 100%;
+    }
+
+    .tech-card {
+      aspect-ratio: 1 / 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .tech-icon-box {
+      display: inline-flex;
+      height: 3.5rem;
+      width: 3.5rem;
+      aspect-ratio: 1 / 1;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+      margin-inline: auto;
+    }
+
+    .tech-icon-box :global(svg) {
+      display: block;
+      height: 2.6rem;
+      width: 2.6rem;
+      max-height: 2.6rem;
+      max-width: 2.6rem;
+      flex-shrink: 0;
+    }
+
+    .tech-empty-slot {
+      aspect-ratio: 1 / 1;
+    }
+
+    @media (max-width: 1023px) {
+      .tech-category {
+        width: 100%;
+      }
+
+      .tech-page {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .tech-category {
+        width: min(100%, 768px);
+        margin-inline: auto;
+      }
+
+      .tech-page {
+        grid-template-columns: repeat(4, minmax(0, 180px));
+      }
+    }
+  </style>
+
+  <script>
+    // @ts-nocheck
+    document.addEventListener("DOMContentLoaded", () => {
+      const syncButtons = (track) => {
+        const currentPage = Number.parseInt(track.dataset.page ?? "0", 10);
+        const maxPage = Math.max(Number.parseInt(track.dataset.pageCount ?? "1", 10) - 1, 0);
+        const targetId = track.id;
+
+        document.querySelectorAll(`.tech-page-button[data-page-target="${targetId}"]`).forEach((button) => {
+          const direction = button.getAttribute("data-page-direction");
+          const blocked =
+            (direction === "left" && currentPage === 0) ||
+            (direction === "right" && currentPage === maxPage);
+          button.setAttribute("aria-disabled", blocked ? "true" : "false");
+        });
+      };
+
+      const setTrackPage = (track, nextPage) => {
+        const maxPage = Math.max(Number.parseInt(track.dataset.pageCount ?? "1", 10) - 1, 0);
+        const page = Math.min(Math.max(nextPage, 0), maxPage);
+        track.dataset.page = String(page);
+        track.style.transform = `translateX(-${page * 100}%)`;
+        syncButtons(track);
+      };
+
+      document.querySelectorAll(".tech-track").forEach((track) => {
+        if (track instanceof HTMLElement) {
+          syncButtons(track);
+        }
+      });
+
+      document.querySelectorAll(".tech-page-button").forEach((button) => {
+        button.addEventListener("click", () => {
+          const targetId = button.getAttribute("data-page-target");
+          const direction = button.getAttribute("data-page-direction");
+          const track = targetId ? document.getElementById(targetId) : null;
+          if (!(track instanceof HTMLElement)) {
+            return;
+          }
+
+          const currentPage = Number.parseInt(track.dataset.page ?? "0", 10);
+          const nextPage = direction === "left" ? currentPage - 1 : currentPage + 1;
+          setTrackPage(track, nextPage);
+        });
+      });
+    });
+  </script>
 </section>

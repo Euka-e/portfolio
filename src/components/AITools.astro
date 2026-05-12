@@ -1,0 +1,92 @@
+---
+import ClaudeIcon from "../icons/ai/claude.astro";
+import CursorIcon from "../icons/ai/cursor.astro";
+import CopilotIcon from "../icons/ai/copilot.astro";
+import V0Icon from "../icons/ai/v0.astro";
+import VercelAIIcon from "../icons/ai/vercel-ai.astro";
+import OpenAIIcon from "../icons/ai/openai.astro";
+
+const toolsEN = [
+  { name: "Claude", detail: "Research, implementation planning, and code iteration.", icon: ClaudeIcon },
+  { name: "Cursor", detail: "Fast editing loops, repo navigation, and local refactors.", icon: CursorIcon },
+  { name: "GitHub Copilot", detail: "Boilerplate acceleration and in-editor completions.", icon: CopilotIcon },
+  { name: "v0", detail: "UI ideation and rapid layout exploration before hardening.", icon: V0Icon },
+  { name: "Vercel AI SDK", detail: "Production AI features, streaming UX, and tool-enabled flows.", icon: VercelAIIcon },
+  { name: "OpenAI API", detail: "Embeddings, assistants, and product-facing AI workflows.", icon: OpenAIIcon },
+];
+
+const toolsES = [
+  { name: "Claude", detail: "Investigación, planificación de implementación e iteración de código.", icon: ClaudeIcon },
+  { name: "Cursor", detail: "Loops de edición rápidos, navegación de repos y refactors locales.", icon: CursorIcon },
+  { name: "GitHub Copilot", detail: "Aceleración de boilerplate y autocompletado dentro del editor.", icon: CopilotIcon },
+  { name: "v0", detail: "Ideación de UI y exploración rápida de layouts antes de endurecerlos.", icon: V0Icon },
+  { name: "Vercel AI SDK", detail: "Features de IA en producción, streaming UX y flujos con herramientas.", icon: VercelAIIcon },
+  { name: "OpenAI API", detail: "Embeddings, asistentes y flujos de IA orientados al producto.", icon: OpenAIIcon },
+];
+---
+
+<section class="mx-auto w-full pt-20 lg:w-[960px]" id="ai-tools">
+  <div class="text-center" data-lang="en" data-animate="fade-up">
+    <p class="mb-3 text-sm uppercase tracking-[0.32em] text-accent-cyan">AI workflow</p>
+    <h2 class="section-title">AI-Powered Development</h2>
+    <p class="section-copy mx-auto mt-4 max-w-2xl">
+      I integrate AI tools across every stage of the workflow to deliver faster with higher quality.
+    </p>
+  </div>
+  <div class="text-center" data-lang="es" data-animate="fade-up">
+    <p class="mb-3 text-sm uppercase tracking-[0.32em] text-accent-cyan">Workflow IA</p>
+    <h2 class="section-title">Desarrollo Potenciado por IA</h2>
+    <p class="section-copy mx-auto mt-4 max-w-2xl">
+      Integro herramientas de IA en cada etapa del flujo de trabajo para entregar más rápido con mayor calidad.
+    </p>
+  </div>
+
+  <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-lang="en">
+    {
+      toolsEN.map((tool, index) => {
+        const Icon = tool.icon;
+        return (
+          <article
+            class="glass-card spotlight-card rounded-[18px] p-5 transition duration-300 hover:-translate-y-1 hover:border-accent-purple/40"
+            data-animate="fade-up"
+            style={`--stagger-delay:${index * 70}ms;`}
+          >
+            <div class="flex size-12 items-center justify-center rounded-xl border border-white/10 bg-white/5 [&_svg]:h-7 [&_svg]:w-7">
+              <Icon />
+            </div>
+            <h3 class="mt-5 text-lg font-semibold text-white">{tool.name}</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-300">{tool.detail}</p>
+          </article>
+        );
+      })
+    }
+  </div>
+
+  <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-lang="es">
+    {
+      toolsES.map((tool, index) => {
+        const Icon = tool.icon;
+        return (
+          <article
+            class="glass-card spotlight-card rounded-[18px] p-5 transition duration-300 hover:-translate-y-1 hover:border-accent-purple/40"
+            data-animate="fade-up"
+            style={`--stagger-delay:${index * 70}ms;`}
+          >
+            <div class="flex size-12 items-center justify-center rounded-xl border border-white/10 bg-white/5 [&_svg]:h-7 [&_svg]:w-7">
+              <Icon />
+            </div>
+            <h3 class="mt-5 text-lg font-semibold text-white">{tool.name}</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-300">{tool.detail}</p>
+          </article>
+        );
+      })
+    }
+  </div>
+
+  <p class="section-copy mx-auto mt-8 max-w-3xl text-center" data-lang="en" data-animate="fade-in">
+    Using AI tools isn't about replacing engineering judgment - it's about amplifying it. I validate every AI-generated output, understand the tradeoffs, and ship production-ready code.
+  </p>
+  <p class="section-copy mx-auto mt-8 max-w-3xl text-center" data-lang="es" data-animate="fade-in">
+    Usar herramientas de IA no significa reemplazar criterio de ingeniería, sino amplificarlo. Valido cada salida generada por IA, entiendo los tradeoffs y entrego código listo para producción.
+  </p>
+</section>

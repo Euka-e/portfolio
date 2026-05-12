@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import Experience from "../components/Experience.astro";
 import Presentation from "../components/Presentation.astro";
-import Pills from "../components/Pills.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import Header from "../components/Header.astro";
 import Technologies from "../components/Technologies.astro";
@@ -10,26 +9,25 @@ import Projects from "../components/projects/Projects.astro";
 import Achievements from "../components/Achievements.astro";
 import AboutMe from "../components/AboutMe.astro";
 import Contact from "../components/Contact.astro";
+import AITools from "../components/AITools.astro";
+import Footer from "../components/Footer.astro";
+import CommandPalette from "../components/CommandPalette.astro";
 ---
 
 <Layout
-  title="Eric Díaz - Full Stack Engineer | Portfolio"
-  description="Full Stack Engineer at Continental Venture Capital. Building robust & user-centric web solutions with expertise in React, Node.js, AWS, and team leadership. Specializing in scalable applications and development process optimization."
+  title="Eric David Diaz - Full Stack Engineer | Portfolio"
+  description="Senior full-stack engineer currently building at Bixlabs. Portfolio focused on scalable product delivery, AI-powered workflows, and high-quality engineering execution."
 >
   <main>
-    <div
-      class="flex justify-start items-center py-3 xl:w-[1120px] mx-auto gap-x-10"
-      id="start"
-    >
+    <div class="mx-auto flex items-center justify-start gap-x-10 py-2 xl:w-[1120px]" id="start">
       <Header />
     </div>
-    <SectionContainer class="sm:pt-28 pt-10 pb-20">
+    <SectionContainer class="pb-20 pt-10 sm:pt-28">
       <SectionContainer>
         <Presentation />
-        <Pills />
       </SectionContainer>
 
-      <SectionContainer >
+      <SectionContainer>
         <Experience />
       </SectionContainer>
 
@@ -39,6 +37,10 @@ import Contact from "../components/Contact.astro";
 
       <SectionContainer>
         <Technologies />
+      </SectionContainer>
+
+      <SectionContainer>
+        <AITools />
       </SectionContainer>
 
       <SectionContainer>
@@ -53,8 +55,11 @@ import Contact from "../components/Contact.astro";
         <Contact />
       </SectionContainer>
     </SectionContainer>
-    <!-- <SectionContainer>
+
+    <SectionContainer class="mt-2">
       <Footer />
-    </SectionContainer> -->
+    </SectionContainer>
+
+    <CommandPalette />
   </main>
 </Layout>

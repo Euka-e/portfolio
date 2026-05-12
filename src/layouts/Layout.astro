@@ -1,5 +1,10 @@
 ---
 import "@fontsource/geist-mono/300.css";
+import "@fontsource/geist-mono/500.css";
+import animationsScript from "../scripts/animations.js?url";
+import cursorScript from "../scripts/cursor.js?url";
+import typewriterScript from "../scripts/typewriter.js?url";
+import languageSwitcherScript from "../scripts/language-switcher.js?url";
 
 interface Props {
   title: string;
@@ -25,19 +30,64 @@ const { title, description } = Astro.props;
       rel="stylesheet"
     />
 
+    <script is:inline>
+      try {
+        const savedLanguage = localStorage.getItem("portfolio-language") || "en";
+        document.documentElement.dataset.language = savedLanguage;
+        document.documentElement.lang = savedLanguage;
+      } catch {
+        document.documentElement.dataset.language = "en";
+        document.documentElement.lang = "en";
+      }
+    </script>
+
     <title>{title}</title>
   </head>
   <body>
     <slot />
+    <div id="cursor-dot" aria-hidden="true"></div>
+    <script is:inline type="module" src={animationsScript}></script>
+    <script is:inline type="module" src={languageSwitcherScript}></script>
+    <script is:inline type="module" src={cursorScript}></script>
+    <script is:inline type="module" src={typewriterScript}></script>
   </body>
 </html>
+
 <style is:global>
   :root {
-    color-scheme: light dark;
+    color-scheme: dark;
   }
+
+  * {
+    box-sizing: border-box;
+  }
+
   html {
     font-family: "Geist Mono", sans-serif;
     scroll-behavior: smooth;
+  }
+
+  html[data-language="en"] [data-lang="es"] {
+    display: none !important;
+  }
+
+  html[data-language="es"] [data-lang="en"] {
+    display: none !important;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  a,
+  button,
+  span,
+  li,
+  summary,
+  input {
+    cursor: none;
   }
 
   .emoji,
@@ -51,11 +101,29 @@ const { title, description } = Astro.props;
   }
 
   body {
-    background: linear-gradient(180deg, #020021 0%, #02001a 50%, #080053 100%);
+    background: #060612;
+    background-image:
+      radial-gradient(
+        ellipse 80% 50% at 20% 0%,
+        rgba(139, 92, 246, 0.15) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse 60% 40% at 80% 100%,
+        rgba(6, 182, 212, 0.12) 0%,
+        transparent 60%
+      );
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
+    margin: 0;
+    color: #f8fafc;
+    overflow-x: hidden;
+  }
+
+  main {
+    width: 100%;
   }
 
   body:has(#menu-toggle:checked) {
@@ -63,9 +131,177 @@ const { title, description } = Astro.props;
     overscroll-behavior: none;
     touch-action: none;
   }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .spotlight-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .spotlight-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(
+        180px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+        rgba(139, 92, 246, 0.18),
+        rgba(6, 182, 212, 0.08) 38%,
+        transparent 72%
+      );
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .spotlight-card:hover::before {
+    opacity: 1;
+  }
+
+  .spotlight-card > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glow-btn {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+  }
+
+  .section-title {
+    font-size: clamp(1.875rem, 3vw, 2.5rem);
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: -0.04em;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  .section-copy {
+    color: rgba(226, 232, 240, 0.78);
+    line-height: 1.7;
+  }
+
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+    transition-delay: var(--stagger-delay, 0ms);
+  }
+
+  [data-animate="fade-in"] {
+    transform: none;
+  }
+
+  [data-animate="slide-right"] {
+    transform: translateX(-24px);
+  }
+
+  [data-animate="slide-left"] {
+    transform: translateX(24px);
+  }
+
+  [data-animate].visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .typewriter-cursor {
+    display: inline-block;
+    margin-left: 0.15rem;
+    color: #06b6d4;
+    animation: blink 1s steps(1) infinite;
+  }
+
+  #cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background: rgba(6, 6, 18, 0.18);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    pointer-events: none;
+    transform: translate3d(-50%, -50%, 0);
+    z-index: 101;
+    transition:
+      width 0.12s ease,
+      height 0.12s ease,
+      border-color 0.12s ease,
+      background-color 0.12s ease,
+      opacity 0.2s ease;
+  }
+
+  #cursor-dot.is-hovered {
+    width: 18px;
+    height: 18px;
+    border-color: rgba(6, 182, 212, 0.9);
+    background: rgba(6, 182, 212, 0.14);
+  }
+
+  #cursor-dot.is-blocked {
+    width: 18px;
+    height: 18px;
+    border-color: rgba(248, 113, 113, 0.95);
+    background: rgba(248, 113, 113, 0.16);
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
+    }
+
+    [data-animate] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  @media (hover: none), (pointer: coarse) {
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    a,
+    button,
+    span,
+    li,
+    summary,
+    input {
+      cursor: auto;
+    }
+
+    #cursor-dot {
+      display: none;
     }
   }
 </style>
