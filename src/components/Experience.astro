@@ -183,15 +183,15 @@ const experienceSections = [
         </div>
 
         <div class="relative mt-10">
-          <div class="absolute left-4 top-0 h-full w-px bg-gradient-to-b from-accent-purple/70 via-accent-cyan/70 to-transparent sm:left-1/2 sm:-translate-x-1/2"></div>
+          <div class="absolute bottom-0 left-4 top-0 w-px bg-gradient-to-b from-accent-purple/70 via-accent-cyan/70 to-transparent lg:left-1/2 lg:-translate-x-1/2"></div>
 
           <div class="space-y-6">
             {
               section.featured.map((experience, index) => (
                 <article
-                  class={`relative ml-10 rounded-[18px] p-6 sm:ml-0 sm:w-[calc(50%-1.4rem)] ${
-                    index % 2 === 0 ? "sm:mr-auto" : "sm:ml-auto"
-                  } glass-card`}
+                  class={`glass-card relative ml-10 rounded-[18px] p-6 lg:ml-0 lg:w-[calc(50%-2rem)] ${
+                    index % 2 === 0 ? "lg:mr-auto" : "lg:ml-auto"
+                  }`}
                   data-animate={index % 2 === 0 ? "slide-right" : "slide-left"}
                 >
                   <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-cyan/55 to-transparent"></div>
@@ -203,6 +203,11 @@ const experienceSections = [
                     <span>{experience.location}</span>
                   </div>
                   <p class="mt-4 text-sm leading-7 text-slate-300">{experience.summary}</p>
+                  <span class="absolute left-[-1.65rem] top-8 h-3.5 w-3.5 rounded-full border border-accent-cyan/80 bg-[#060612] lg:left-auto lg:right-[-2.2rem] lg:hidden"></span>
+                  <span
+                    class={`absolute top-8 hidden h-3.5 w-3.5 rounded-full border border-accent-cyan/80 bg-[#060612] lg:block ${
+                      index % 2 === 0 ? "right-[-2.2rem]" : "left-[-2.2rem]"
+                    }`}></span>
                 </article>
               ))
             }
@@ -219,7 +224,7 @@ const experienceSections = [
               <div class="mt-6 space-y-4">
                 {section.hidden.map((experience, index) => (
                   <article
-                    class="glass-card rounded-[18px] p-6"
+                    class="glass-card relative rounded-[18px] p-6"
                     data-animate="fade-up"
                     style={`--stagger-delay:${index * 70}ms;`}
                   >

@@ -79,9 +79,22 @@ const linksES = [
           d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
     </label>
+    <a
+      href="#start"
+      class="flex h-full items-center text-sm font-semibold uppercase tracking-[0.28em] text-slate-100"
+    >
+      Eric Diaz
+    </a>
+    <button
+      type="button"
+      data-language-toggle
+      class="absolute right-3 top-1/2 flex h-8 min-w-[48px] -translate-y-1/2 items-center justify-center rounded-xl border border-white/10 bg-white/5 px-3 text-[11px] font-semibold tracking-[0.22em] text-slate-200"
+    >
+      <span data-language-label>EN</span>
+    </button>
     <div
       id="mobile-menu"
-      class="glass-card fixed left-4 right-4 top-16 z-50 m-0 hidden max-h-[calc(100dvh-5rem)] flex-col overflow-y-auto rounded-[20px] p-2 text-white sm:hidden"
+      class="glass-card fixed left-4 right-4 top-16 z-50 m-0 hidden max-h-[calc(100dvh-5rem)] flex-col overflow-y-auto rounded-[20px] p-2 text-white"
     >
       <div data-lang="en">
         {
@@ -101,13 +114,6 @@ const linksES = [
           ))
         }
       </div>
-      <button
-        type="button"
-        data-language-toggle
-        class="mt-2 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-center text-sm font-semibold tracking-[0.22em] text-slate-200"
-      >
-        <span data-language-label>EN</span>
-      </button>
     </div>
     <style>
       #menu-toggle:checked ~ #mobile-menu {
@@ -135,7 +141,7 @@ const linksES = [
           });
         });
 
-        document.querySelectorAll("#mobile-menu [data-language-toggle]").forEach((button) => {
+        document.querySelectorAll("header [data-language-toggle]").forEach((button) => {
           button.addEventListener("click", () => {
             toggle.checked = false;
           });
