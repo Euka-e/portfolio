@@ -1,7 +1,13 @@
 ---
-const { class: className,id } = Astro.props;
+interface Props {
+  as?: string;
+  id?: string;
+  class?: string;
+}
+
+const { as: Tag = "section", id, class: className } = Astro.props;
 ---
 
-<section id={id} class={`w-full mx-auto max-w-[1120px] ${className}`}>
+<Tag id={id} class:list={["mx-auto w-full max-w-[1280px] px-6", className]}>
   <slot />
-</section>
+</Tag>

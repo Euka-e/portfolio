@@ -1,88 +1,66 @@
-﻿---
-import SocialButton from "./SocialButton.astro";
-import LinkedInIcon from "../icons/LinkedIn.astro";
-import GitHubIcon from "../icons/GitHub.astro";
-import MailIcon from "../icons/Mail.astro";
-
-const contactCopyEN = {
-  eyebrow: "Let's talk",
-  title: "Ready to build something strong?",
-  body:
-    "I'm open to full-time roles, contract work, and technically ambitious product teams. Based in Argentina and comfortable collaborating across time zones with async-friendly workflows.",
-  cta: "Hire me",
-  emailLabel: "Email",
-};
-
-const contactCopyES = {
-  eyebrow: "Hablemos",
-  title: "¿Listo para construir algo sólido?",
-  body:
-    "Estoy abierto a roles full-time, trabajo por contrato y equipos de producto técnicamente ambiciosos. Estoy basado en Argentina y me siento cómodo colaborando entre zonas horarias con workflows async-friendly.",
-  cta: "Contrátame",
-  emailLabel: "Correo",
-};
+---
+import { contactContent, contactLinks } from "../data/contact";
 ---
 
-<section class="mx-auto w-full pb-8 pt-20 lg:w-[740px]" id="contact">
-  <div
-    class="glass-card relative overflow-hidden rounded-[32px] px-8 py-10 text-center md:px-12 md:py-14"
-    data-animate="fade-up"
-  >
-    <div class="pointer-events-none absolute left-1/2 top-0 h-56 w-[130%] -translate-x-1/2 -translate-y-1/3 rounded-full bg-[radial-gradient(circle,rgba(139,92,246,0.3)_0%,rgba(6,182,212,0.12)_38%,transparent_72%)] blur-3xl"></div>
-    <div class="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-[radial-gradient(circle_at_bottom,rgba(6,182,212,0.12),transparent_72%)]"></div>
-    <div class="relative z-10" data-lang="en">
-      <p class="mb-3 text-sm uppercase tracking-[0.32em] text-accent-cyan">{contactCopyEN.eyebrow}</p>
-      <h2 class="section-title">{contactCopyEN.title}</h2>
-      <p class="section-copy mx-auto mt-5 max-w-2xl">{contactCopyEN.body}</p>
-      <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <a href="mailto:ericdiazeuka@gmail.com" class="glow-btn rounded-2xl bg-accent-gradient px-7 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5">
-          {contactCopyEN.cta}
+<div class="py-20 md:py-28">
+  <div class="flex items-start gap-4 border-t border-hairline pt-4" data-reveal>
+    <span class="font-mono text-[11px] tracking-[0.2em] text-ink-4">07</span>
+    <h2 class="font-sans text-h2 font-medium leading-none tracking-[-0.04em] text-ink">
+      <span data-lang="es">{contactContent.heading.es}</span>
+      <span data-lang="en">{contactContent.heading.en}</span>
+    </h2>
+  </div>
+
+  <div class="mt-14 grid gap-10 lg:grid-cols-2">
+    <h3 class="text-[clamp(30px,4.6vw,60px)] font-medium leading-[0.98] tracking-[-0.05em] text-ink" data-reveal="mask">
+      <span data-lang="es">{contactContent.statement.es}</span>
+      <span data-lang="en">{contactContent.statement.en}</span>
+    </h3>
+
+    <div data-reveal>
+      <p class="max-w-[480px] text-[15px] leading-7 text-ink-2">
+        <span data-lang="es">{contactContent.body.es}</span>
+        <span data-lang="en">{contactContent.body.en}</span>
+      </p>
+
+      <div class="mt-8 flex flex-wrap">
+        <a href="mailto:ericdiazeuka@gmail.com" class="inline-flex h-12 items-center bg-[#f8fafc] px-5 text-[12px] font-medium text-[#060612]">
+          <span data-lang="es">{contactContent.hire.es}</span>
+          <span data-lang="en">{contactContent.hire.en}</span>
         </a>
-        <a href="mailto:ericdiazeuka@gmail.com" class="glass-card rounded-2xl px-6 py-3 text-sm font-semibold text-white transition hover:border-white/20">
-          ericdiazeuka@gmail.com
-        </a>
+        <button type="button" class="inline-flex h-12 items-center border border-l-0 border-hairline px-5 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-2 transition-colors hover:text-accent" data-share-open>
+          <span data-lang="es">{contactContent.share.es}</span>
+          <span data-lang="en">{contactContent.share.en}</span>
+        </button>
       </div>
-      <div class="mt-8 flex flex-wrap justify-center gap-3">
-        <SocialButton href="mailto:ericdiazeuka@gmail.com">
-          <MailIcon class="size-5" />
-          {contactCopyEN.emailLabel}
-        </SocialButton>
-        <SocialButton href="https://www.linkedin.com/in/eric-diaz-euka/">
-          <LinkedInIcon class="size-5" />
-          LinkedIn
-        </SocialButton>
-        <SocialButton href="https://github.com/Euka-e">
-          <GitHubIcon class="size-5" />
-          GitHub
-        </SocialButton>
-      </div>
-    </div>
-    <div class="relative z-10" data-lang="es">
-      <p class="mb-3 text-sm uppercase tracking-[0.32em] text-accent-cyan">{contactCopyES.eyebrow}</p>
-      <h2 class="section-title">{contactCopyES.title}</h2>
-      <p class="section-copy mx-auto mt-5 max-w-2xl">{contactCopyES.body}</p>
-      <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <a href="mailto:ericdiazeuka@gmail.com" class="glow-btn rounded-2xl bg-accent-gradient px-7 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5">
-          {contactCopyES.cta}
-        </a>
-        <a href="mailto:ericdiazeuka@gmail.com" class="glass-card rounded-2xl px-6 py-3 text-sm font-semibold text-white transition hover:border-white/20">
-          ericdiazeuka@gmail.com
-        </a>
-      </div>
-      <div class="mt-8 flex flex-wrap justify-center gap-3">
-        <SocialButton href="mailto:ericdiazeuka@gmail.com">
-          <MailIcon class="size-5" />
-          {contactCopyES.emailLabel}
-        </SocialButton>
-        <SocialButton href="https://www.linkedin.com/in/eric-diaz-euka/">
-          <LinkedInIcon class="size-5" />
-          LinkedIn
-        </SocialButton>
-        <SocialButton href="https://github.com/Euka-e">
-          <GitHubIcon class="size-5" />
-          GitHub
-        </SocialButton>
+
+      <div class="mt-8 font-mono text-[12px]">
+        {
+          contactLinks.map((link) => (
+            <a class="contact-link border-b border-hairline" href={link.href} target={link.href.startsWith("http") ? "_blank" : undefined} rel={link.href.startsWith("http") ? "noreferrer" : undefined}>
+              <span>{link.label}</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          ))
+        }
       </div>
     </div>
   </div>
-</section>
+</div>
+
+<style>
+  .contact-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 15px 4px;
+    color: #a3a3b8;
+    transition: color 0.25s ease, padding-left 0.25s ease;
+  }
+
+  .contact-link:hover {
+    padding-left: 14px;
+    color: #22d3ee;
+  }
+</style>

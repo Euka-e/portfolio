@@ -1,10 +1,10 @@
 ---
-import "@fontsource/geist-mono/300.css";
+import "@fontsource/geist/400.css";
+import "@fontsource/geist/500.css";
+import "@fontsource/geist/600.css";
+import "@fontsource/geist-mono/400.css";
 import "@fontsource/geist-mono/500.css";
-import animationsScript from "../scripts/animations.js?url";
-import cursorScript from "../scripts/cursor.js?url";
-import typewriterScript from "../scripts/typewriter.js?url";
-import languageSwitcherScript from "../scripts/language-switcher.js?url";
+import profile from "../assets/profile-recent.jpg";
 
 interface Props {
   title: string;
@@ -12,49 +12,104 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL("/og.png", Astro.site).href;
+const profileImage = new URL(profile.src, Astro.site).href;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="Eric David Diaz" />
+    <meta name="theme-color" content="#060612" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap"
-      rel="stylesheet"
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Eric David Diaz" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Eric David Diaz",
+        url: "https://ericdiazportfolio.vercel.app",
+        image: profileImage,
+        jobTitle: "Full-Stack Software Engineer",
+        worksFor: { "@type": "Organization", name: "Bixlabs" },
+        address: { "@type": "PostalAddress", addressCountry: "AR" },
+        email: "mailto:ericdiazeuka@gmail.com",
+        knowsLanguage: ["es", "en"],
+        sameAs: [
+          "https://www.linkedin.com/in/eric-diaz-euka/",
+          "https://github.com/Euka-e",
+        ],
+        knowsAbout: [
+          "React",
+          "Next.js",
+          "TypeScript",
+          "Node.js",
+          "NestJS",
+          "Astro",
+          "AWS",
+          "Docker",
+          "AI-assisted development",
+        ],
+      })}
     />
 
     <script is:inline>
       try {
-        const savedLanguage = localStorage.getItem("portfolio-language") || "en";
+        const savedLanguage = localStorage.getItem("portfolio-language") || "es";
         document.documentElement.dataset.language = savedLanguage;
         document.documentElement.lang = savedLanguage;
       } catch {
-        document.documentElement.dataset.language = "en";
-        document.documentElement.lang = "en";
+        document.documentElement.dataset.language = "es";
+        document.documentElement.lang = "es";
       }
     </script>
 
     <title>{title}</title>
   </head>
   <body>
+    <div class="grid-overlay" aria-hidden="true">
+      <div class="grid-overlay__columns">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
     <slot />
-    <div id="cursor-dot" aria-hidden="true"></div>
-    <script is:inline type="module" src={animationsScript}></script>
-    <script is:inline type="module" src={languageSwitcherScript}></script>
-    <script is:inline type="module" src={cursorScript}></script>
-    <script is:inline type="module" src={typewriterScript}></script>
+    <script>
+      import "../scripts";
+    </script>
   </body>
 </html>
 
 <style is:global>
   :root {
+    --grid-line: rgba(255, 255, 255, 0.045);
     color-scheme: dark;
   }
 
@@ -62,9 +117,35 @@ const { title, description } = Astro.props;
     box-sizing: border-box;
   }
 
+  ::selection {
+    background: #22d3ee;
+    color: #060612;
+  }
+
   html {
-    font-family: "Geist Mono", sans-serif;
+    font-family: "Geist", ui-sans-serif, system-ui, sans-serif;
     scroll-behavior: smooth;
+    scrollbar-color: #2c2c48 #0a0a18;
+    scrollbar-width: thin;
+  }
+
+  html::-webkit-scrollbar {
+    width: 11px;
+    background: #0a0a18;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: #0a0a18;
+    border-left: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #8b5cf6, #06b6d4);
+    border: 3px solid #0a0a18;
+  }
+
+  html::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #a78bfa, #22d3ee);
   }
 
   html[data-language="en"] [data-lang="es"] {
@@ -75,55 +156,27 @@ const { title, description } = Astro.props;
     display: none !important;
   }
 
-  body,
-  h1,
-  h2,
-  h3,
-  h4,
-  p,
-  a,
-  button,
-  span,
-  li,
-  summary,
-  input {
-    cursor: none;
-  }
-
-  .emoji,
-  .flag-emoji {
-    font-family: "Noto Color Emoji", "Segoe UI Emoji", "Apple Color Emoji",
-      "Twemoji Mozilla", sans-serif;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-  }
-
   body {
-    background: #060612;
-    background-image:
-      radial-gradient(
-        ellipse 80% 50% at 20% 0%,
-        rgba(139, 92, 246, 0.15) 0%,
-        transparent 60%
-      ),
-      radial-gradient(
-        ellipse 60% 40% at 80% 100%,
-        rgba(6, 182, 212, 0.12) 0%,
-        transparent 60%
-      );
-    background-attachment: fixed;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
-    color: #f8fafc;
     overflow-x: hidden;
+    background: #060612;
+    color: #f8fafc;
+    font-family: "Geist", ui-sans-serif, system-ui, sans-serif;
   }
 
   main {
+    position: relative;
+    z-index: 1;
     width: 100%;
+    transition: opacity 0.3s ease;
+  }
+
+  html[data-switching] main {
+    opacity: 0.25;
+    transition: opacity 0.16s ease;
   }
 
   body:has(#menu-toggle:checked) {
@@ -132,143 +185,105 @@ const { title, description } = Astro.props;
     touch-action: none;
   }
 
-  .glass-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-  }
-
-  .spotlight-card {
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-  }
-
-  .spotlight-card::before {
-    content: "";
-    position: absolute;
+  .grid-overlay {
+    position: fixed;
     inset: 0;
-    background:
-      radial-gradient(
-        180px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
-        rgba(139, 92, 246, 0.18),
-        rgba(6, 182, 212, 0.08) 38%,
-        transparent 72%
-      );
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    pointer-events: none;
     z-index: 0;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
   }
 
-  .spotlight-card:hover::before {
-    opacity: 1;
+  .grid-overlay__columns {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: min(100%, 1280px);
+    padding-inline: 24px;
   }
 
-  .spotlight-card > * {
-    position: relative;
-    z-index: 1;
+  .grid-overlay__columns span {
+    border-left: 1px solid var(--grid-line);
   }
 
-  .gradient-text {
-    background: linear-gradient(135deg, #8b5cf6, #06b6d4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
+  .grid-overlay__columns span:last-child {
+    border-right: 1px solid var(--grid-line);
   }
 
-  .glow-btn {
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
-  }
-
-  .section-title {
-    font-size: clamp(1.875rem, 3vw, 2.5rem);
-    font-weight: 700;
-    text-align: center;
-    letter-spacing: -0.04em;
-    line-height: 1.15;
-    text-wrap: balance;
-  }
-
-  .section-copy {
-    color: rgba(226, 232, 240, 0.78);
-    line-height: 1.7;
-  }
-
-  [data-animate] {
-    opacity: 0;
-    transform: translateY(24px);
-    transition:
-      opacity 0.6s ease,
-      transform 0.6s ease;
-    transition-delay: var(--stagger-delay, 0ms);
-  }
-
-  [data-animate="fade-in"] {
-    transform: none;
-  }
-
-  [data-animate="slide-right"] {
-    transform: translateX(-24px);
-  }
-
-  [data-animate="slide-left"] {
-    transform: translateX(24px);
-  }
-
-  [data-animate].visible {
-    opacity: 1;
-    transform: none;
-  }
-
-  .typewriter-cursor {
-    display: inline-block;
-    margin-left: 0.15rem;
-    color: #06b6d4;
-    animation: blink 1s steps(1) infinite;
-  }
-
-  #cursor-dot {
+  .scroll-progress {
     position: fixed;
     top: 0;
     left: 0;
-    width: 14px;
-    height: 14px;
-    border-radius: 9999px;
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    background: rgba(6, 6, 18, 0.18);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-    pointer-events: none;
-    transform: translate3d(-50%, -50%, 0);
-    z-index: 101;
+    z-index: 60;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #8b5cf6, #22d3ee);
+  }
+
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
     transition:
-      width 0.12s ease,
-      height 0.12s ease,
-      border-color 0.12s ease,
-      background-color 0.12s ease,
-      opacity 0.2s ease;
+      opacity 0.7s cubic-bezier(0.16, 0.84, 0.24, 1),
+      transform 0.7s cubic-bezier(0.16, 0.84, 0.24, 1),
+      clip-path 0.9s cubic-bezier(0.16, 0.84, 0.24, 1);
+    transition-delay: var(--d, 0ms);
   }
 
-  #cursor-dot.is-hovered {
-    width: 18px;
-    height: 18px;
-    border-color: rgba(6, 182, 212, 0.9);
-    background: rgba(6, 182, 212, 0.14);
+  [data-reveal="mask"] {
+    transform: none;
+    clip-path: inset(0 100% 0 0);
   }
 
-  #cursor-dot.is-blocked {
-    width: 18px;
-    height: 18px;
-    border-color: rgba(248, 113, 113, 0.95);
-    background: rgba(248, 113, 113, 0.16);
+  [data-reveal].is-in {
+    opacity: 1;
+    transform: none;
   }
 
-  @keyframes blink {
+  [data-reveal="mask"].is-in {
+    clip-path: inset(0 0 0 0);
+  }
+
+  [data-rail] {
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 1.1s cubic-bezier(0.16, 0.84, 0.24, 1);
+  }
+
+  [data-rail].is-in {
+    transform: scaleY(1);
+  }
+
+  [data-hero] {
+    animation: riseIn 0.9s cubic-bezier(0.16, 0.84, 0.24, 1) both;
+  }
+
+  @keyframes riseIn {
+    from {
+      opacity: 0;
+      transform: translateY(26px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes caret {
     50% {
       opacity: 0;
+    }
+  }
+
+  @keyframes toastIn {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
@@ -277,31 +292,14 @@ const { title, description } = Astro.props;
       scroll-behavior: auto;
     }
 
-    [data-animate] {
-      opacity: 1;
-      transform: none;
-      transition: none;
-    }
-  }
-
-  @media (hover: none), (pointer: coarse) {
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    p,
-    a,
-    button,
-    span,
-    li,
-    summary,
-    input {
-      cursor: auto;
-    }
-
-    #cursor-dot {
-      display: none;
+    [data-reveal],
+    [data-hero],
+    [data-rail] {
+      animation: none !important;
+      clip-path: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
     }
   }
 </style>

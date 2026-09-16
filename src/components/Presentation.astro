@@ -1,142 +1,96 @@
-﻿---
-import SocialButton from "./SocialButton.astro";
+---
+import { Image } from "astro:assets";
+import { hero } from "../data/hero";
+import profile from "../assets/profile-recent.jpg";
 import LinkedInIcon from "../icons/LinkedIn.astro";
 import GitHubIcon from "../icons/GitHub.astro";
 import MailIcon from "../icons/Mail.astro";
-
-const presentationCopyEN = {
-  eyebrow: "Full-stack engineering",
-  greeting: "Hi, I'm",
-  tagline:
-    "Full-stack developer with 5+ years building scalable products. I leverage AI tools to ship faster and at a higher quality standard.",
-  primaryCta: "Hire me ->",
-  secondaryCta: "See my work v",
-  socialMail: "Mail",
-  imageNote: "Current focus: product engineering, AI workflows, and team velocity",
-};
-
-const presentationCopyES = {
-  eyebrow: "Ingeniero full-stack",
-  greeting: "Hola, soy",
-  tagline:
-    "Desarrollador full-stack con más de 5 años construyendo productos escalables. Aprovecho herramientas de IA para entregar más rápido y con un estándar de calidad más alto.",
-  primaryCta: "Contrátame ->",
-  secondaryCta: "Ver proyectos v",
-  socialMail: "Correo",
-  imageNote: "Enfoque actual: product engineering, workflows de IA y velocidad de equipo",
-};
 ---
 
-<section class="mx-auto grid w-full max-w-[1120px] items-center gap-10 pt-4 lg:grid-cols-[1.1fr_0.72fr]">
-  <div class="order-2 text-center lg:order-1 lg:text-left">
-    <div data-lang="en">
-      <p class="mb-4 text-sm uppercase tracking-[0.35em] text-accent-cyan" data-animate="fade-up">
-        {presentationCopyEN.eyebrow}
-      </p>
-      <h1
-        class="max-w-4xl text-4xl font-bold tracking-[-0.05em] text-white sm:text-6xl lg:max-w-[720px]"
-        data-animate="fade-up"
-      >
-        {presentationCopyEN.greeting} <span class="gradient-text">Eric David Diaz</span>
-      </h1>
-      <p
-        class="section-copy mt-6 max-w-3xl text-base sm:text-lg lg:max-w-[620px]"
-        data-animate="fade-up"
-        style="--stagger-delay: 160ms;"
-      >
-        {presentationCopyEN.tagline}
+<div class="grid items-end gap-12 lg:grid-cols-[1.25fr_0.75fr]">
+  <div>
+    <div data-hero class="flex items-center gap-3 [animation-delay:60ms]">
+      <span class="h-px w-7 bg-accent"></span>
+      <p class="font-mono text-eyebrow uppercase tracking-[0.24em] text-accent">
+        <span data-lang="es">{hero.eyebrow.es}</span>
+        <span data-lang="en">{hero.eyebrow.en}</span>
       </p>
     </div>
 
-    <div data-lang="es">
-      <p class="mb-4 text-sm uppercase tracking-[0.35em] text-accent-cyan" data-animate="fade-up">
-        {presentationCopyES.eyebrow}
-      </p>
-      <h1
-        class="max-w-4xl text-4xl font-bold tracking-[-0.05em] text-white sm:text-6xl lg:max-w-[720px]"
-        data-animate="fade-up"
-      >
-        {presentationCopyES.greeting} <span class="gradient-text">Eric David Diaz</span>
-      </h1>
-      <p
-        class="section-copy mt-6 max-w-3xl text-base sm:text-lg lg:max-w-[620px]"
-        data-animate="fade-up"
-        style="--stagger-delay: 160ms;"
-      >
-        {presentationCopyES.tagline}
-      </p>
-    </div>
+    <h1 data-hero class="mt-[22px] text-h1 text-ink [animation-delay:140ms]">
+      <span data-lang="es" class="block">{hero.greeting.es}</span>
+      <span data-lang="en" class="block">{hero.greeting.en}</span>
+      <span class="block">Eric David Diaz</span>
+    </h1>
 
-    <p
-      class="mt-5 min-h-[2.5rem] text-xl font-medium text-slate-200 sm:text-2xl"
-      id="typewriter-audio-zone"
-      data-animate="fade-up"
-      style="--stagger-delay: 90ms;"
-    >
-        <span
+    <div data-hero class="mt-[26px] h-px bg-[rgba(255,255,255,0.12)] [animation-delay:220ms]"></div>
+
+    <p data-hero class="mt-4 flex min-h-6 items-center font-mono text-[clamp(13px,1.5vw,16px)] text-ink-2 [animation-delay:260ms]">
+      <span
         data-typewriter
-        data-phrases-en="Full Stack Engineer|AI-Powered Developer|Team Leader"
-        data-phrases-es="Ingeniero Full Stack|Desarrollador Potenciado por IA|Líder de Equipo"></span><span
-        class="typewriter-cursor">|</span>
+        data-phrases-es={hero.phrases.es.join("|")}
+        data-phrases-en={hero.phrases.en.join("|")}
+      ></span>
+      <span aria-hidden="true" class="ml-2 inline-block h-4 w-[9px] bg-accent [animation:caret_1.05s_steps(1)_infinite] motion-reduce:[animation:none]"></span>
     </p>
 
-    <div
-      class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start"
-      data-animate="fade-up"
-      style="--stagger-delay: 230ms;"
-    >
-      <a
-        href="#contact"
-        class="glow-btn rounded-xl bg-accent-gradient px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5"
-      >
-        <span data-lang="en">{presentationCopyEN.primaryCta}</span>
-        <span data-lang="es">{presentationCopyES.primaryCta}</span>
+    <p data-hero class="mt-6 max-w-[560px] text-body-hero text-ink-2 [animation-delay:320ms]">
+      <span data-lang="es">{hero.tagline.es}</span>
+      <span data-lang="en">{hero.tagline.en}</span>
+    </p>
+
+    <div data-hero class="mt-8 flex flex-wrap [animation-delay:380ms]">
+      <a href="#contact" class="flex h-[46px] items-center bg-ink px-6 font-mono text-btn uppercase tracking-[0.14em] text-bg transition-colors hover:bg-accent">
+        <span data-lang="es">{hero.primaryCta.es} →</span>
+        <span data-lang="en">{hero.primaryCta.en} →</span>
       </a>
-      <a
-        href="#projects"
-        class="glass-card rounded-xl px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-white/20"
-      >
-        <span data-lang="en">{presentationCopyEN.secondaryCta}</span>
-        <span data-lang="es">{presentationCopyES.secondaryCta}</span>
+      <a href="#projects" class="flex h-[46px] items-center border border-l-0 border-hairline px-6 font-mono text-btn uppercase tracking-[0.14em] text-ink transition-colors hover:border-accent hover:text-accent">
+        <span data-lang="es">{hero.secondaryCta.es} ↓</span>
+        <span data-lang="en">{hero.secondaryCta.en} ↓</span>
       </a>
     </div>
 
-    <div
-      class="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start"
-      data-animate="fade-up"
-      style="--stagger-delay: 300ms;"
-    >
-      <SocialButton href="https://www.linkedin.com/in/eric-diaz-euka/">
-        <LinkedInIcon class="size-4" />
+    <div data-hero class="mt-8 flex flex-wrap gap-5 [animation-delay:440ms]">
+      <a href="https://www.linkedin.com/in/eric-diaz-euka/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 border-b border-hairline-strong pb-[3px] font-mono text-[11.5px] uppercase tracking-[0.1em] text-ink-2 transition-colors hover:border-accent hover:text-ink">
+        <LinkedInIcon class="size-[13px]" />
         LinkedIn
-      </SocialButton>
-      <SocialButton href="https://github.com/Euka-e">
-        <GitHubIcon class="size-5" />
+      </a>
+      <a href="https://github.com/Euka-e" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 border-b border-hairline-strong pb-[3px] font-mono text-[11.5px] uppercase tracking-[0.1em] text-ink-2 transition-colors hover:border-accent hover:text-ink">
+        <GitHubIcon class="size-[13px]" />
         GitHub
-      </SocialButton>
-      <SocialButton href="mailto:ericdiazeuka@gmail.com">
-        <MailIcon class="size-5" />
-        <span data-lang="en">{presentationCopyEN.socialMail}</span>
-        <span data-lang="es">{presentationCopyES.socialMail}</span>
-      </SocialButton>
+      </a>
+      <a href="mailto:ericdiazeuka@gmail.com" class="flex items-center gap-2 border-b border-hairline-strong pb-[3px] font-mono text-[11.5px] uppercase tracking-[0.1em] text-ink-2 transition-colors hover:border-accent hover:text-ink">
+        <MailIcon class="size-[13px]" />
+        <span data-lang="es">{hero.mailLabel.es}</span>
+        <span data-lang="en">{hero.mailLabel.en}</span>
+      </a>
     </div>
   </div>
 
-  <div class="order-1 mx-auto w-full max-w-[360px] lg:order-2" data-animate="fade-in">
-    <div class="relative">
-      <div class="absolute -inset-4 rounded-[24px] border border-accent-cyan/10 bg-[linear-gradient(135deg,rgba(139,92,246,0.14),rgba(6,182,212,0.04))]"></div>
-      <div class="glass-card relative overflow-hidden rounded-[24px] p-3">
-        <img
-          src="/profile-recent.jpg"
-          alt="Eric David Diaz portrait"
-          class="h-[480px] w-full rounded-[18px] object-cover object-top"
-        />
-        <div class="absolute bottom-6 left-6 right-6 rounded-xl border border-white/10 bg-[#090915]/82 px-4 py-3 backdrop-blur-sm">
-          <p class="text-xs uppercase tracking-[0.28em] text-accent-cyan">Eric David Diaz</p>
-          <p class="mt-2 text-sm text-slate-200" data-lang="en">{presentationCopyEN.imageNote}</p>
-          <p class="mt-2 text-sm text-slate-200" data-lang="es">{presentationCopyES.imageNote}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  <figure data-hero class="mx-auto w-full max-w-[440px] border border-[rgba(255,255,255,0.12)] p-[10px] [animation-delay:500ms]">
+    <Image
+      src={profile}
+      alt="Eric David Diaz, full-stack engineer"
+      widths={[360, 480, 720]}
+      sizes="(min-width: 1024px) 30vw, 90vw"
+      loading="eager"
+      fetchpriority="high"
+      class="aspect-[4/5] w-full object-cover object-top grayscale-[0.15] contrast-[1.04]"
+    />
+    <figcaption class="mt-[10px]">
+      <dl class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink-3">
+        {
+          hero.figure.map((item) => (
+            <div class="contents">
+              <dt class="text-accent">{item.label}</dt>
+              <dd>
+                <span data-lang="es">{item.es}</span>
+                <span data-lang="en">{item.en}</span>
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+    </figcaption>
+  </figure>
+</div>

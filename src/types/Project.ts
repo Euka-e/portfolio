@@ -1,7 +1,11 @@
+export type LocalizedText = {
+  es: string;
+  en: string;
+};
+
 export interface Project {
-  id: number;
-  title: string;
-  description: string;
-  date: string;
-  tasks: string[];
+  title: LocalizedText;
+  description: LocalizedText;
+  year: string;
+  tasks: readonly LocalizedText[];
 }

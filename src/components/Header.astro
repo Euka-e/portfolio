@@ -1,157 +1,111 @@
 ---
-const linksEN = [
-  { href: "#start", label: "Home" },
-  { href: "#experience", label: "Experience" },
-  { href: "#achievements", label: "Achievements" },
-  { href: "#technologies", label: "Technologies" },
-  { href: "#ai-tools", label: "AI Tools" },
-  { href: "#projects", label: "Projects" },
-  { href: "#about-me", label: "About me" },
-  { href: "#contact", label: "Contact" },
-];
-
-const linksES = [
-  { href: "#start", label: "Inicio" },
-  { href: "#experience", label: "Experiencia" },
-  { href: "#achievements", label: "Logros" },
-  { href: "#technologies", label: "Tecnologías" },
-  { href: "#ai-tools", label: "Herramientas IA" },
-  { href: "#projects", label: "Proyectos" },
-  { href: "#about-me", label: "Sobre mí" },
-  { href: "#contact", label: "Contacto" },
-];
+import { navItems } from "../data/nav";
 ---
 
-<header class="flex w-full items-center gap-x-10 px-4 py-3 xl:mx-auto xl:w-[1120px]">
-  <div class="fixed left-4 right-4 top-3 z-50 hidden md:block">
+<header class="fixed inset-x-0 top-0 z-50 h-[58px] border-b border-hairline bg-[rgba(6,6,18,0.86)] font-mono backdrop-blur-[14px]">
+  <input id="menu-toggle" type="checkbox" class="sr-only" />
+  <div class="relative mx-auto flex h-full w-full max-w-[1280px] items-center px-6">
+    <a href="#start" class="whitespace-nowrap text-[12px] uppercase tracking-[0.18em] text-ink">
+      Eric David Diaz
+    </a>
+
     <nav
-      class="glass-card absolute left-1/2 top-0 flex h-12 -translate-x-1/2 items-center justify-center rounded-[20px] px-6 xl:w-[980px]"
+      aria-label="Primary"
+      class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-[22px] min-[1150px]:flex"
     >
-      <div class="flex items-center justify-center gap-x-6 text-sm font-medium text-white lg:gap-x-7 lg:text-[15px]">
-        <div class="contents" data-lang="en">
-          {
-            linksEN.map((link) => (
-              <a href={link.href} class="whitespace-nowrap transition hover:text-accent-cyan">
-                {link.label}
-              </a>
-            ))
-          }
-        </div>
-        <div class="contents" data-lang="es">
-          {
-            linksES.map((link) => (
-              <a href={link.href} class="whitespace-nowrap transition hover:text-accent-cyan">
-                {link.label}
-              </a>
-            ))
-          }
-        </div>
-      </div>
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            class="whitespace-nowrap border-b border-transparent pb-[3px] text-[11.5px] uppercase tracking-[0.1em] text-ink-3 transition-colors hover:border-accent hover:text-ink"
+          >
+            <span data-lang="es">{item.es}</span>
+            <span data-lang="en">{item.en}</span>
+          </a>
+        ))
+      }
     </nav>
-    <button
-      type="button"
-      data-language-toggle
-      class="glass-card absolute right-0 top-0 flex h-12 min-w-[58px] items-center justify-center rounded-[16px] px-4 text-xs font-semibold tracking-[0.22em] text-slate-200 transition hover:border-white/20 hover:text-white"
-    >
-      <span data-language-label>EN</span>
-    </button>
+
+    <div class="ml-auto flex items-center">
+      <button
+        type="button"
+        data-share-open
+        class="flex h-[34px] items-center justify-center gap-2 border border-hairline px-3 text-[11px] uppercase tracking-[0.14em] text-ink-2 transition-colors hover:border-[rgba(34,211,238,0.5)] hover:bg-[rgba(255,255,255,0.06)] hover:text-ink"
+      >
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" aria-hidden="true" class="size-[13px]">
+          <path d="M8 10V1M5 4l3-3 3 3M3 7v7h10V7" />
+        </svg>
+        <span data-lang="es" class="hidden min-[768px]:inline">Compartir</span>
+        <span data-lang="en" class="hidden min-[768px]:inline">Share</span>
+      </button>
+      <a
+        href="/eric-diaz-cv.pdf"
+        download="Eric-David-Diaz-CV.pdf"
+        class="flex h-[34px] items-center justify-center gap-2 border border-l-0 border-hairline bg-ink px-3 text-[11px] uppercase tracking-[0.14em] text-bg transition-colors hover:bg-accent"
+      >
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" aria-hidden="true" class="size-[13px]">
+          <path d="M8 1v9M5 7l3 3 3-3M3 14h10" />
+        </svg>
+        <span>CV</span>
+      </a>
+      <button
+        type="button"
+        data-language-toggle
+        aria-label="Cambiar a inglés"
+        class="ml-2 flex h-[34px] min-w-[46px] items-center justify-center border border-hairline px-3 text-[11px] uppercase tracking-[0.14em] text-ink transition-colors hover:border-[rgba(34,211,238,0.5)] hover:bg-[rgba(255,255,255,0.06)]"
+      >
+        <span data-lang="es">EN</span>
+        <span data-lang="en">ES</span>
+      </button>
+      <label
+        for="menu-toggle"
+        aria-controls="mobile-menu"
+        aria-label="Abrir menú de navegación"
+        class="ml-2 flex h-[36px] w-[34px] cursor-pointer items-center justify-center border border-hairline text-ink transition-colors hover:border-[rgba(34,211,238,0.5)] hover:bg-[rgba(255,255,255,0.06)] min-[1150px]:hidden"
+      >
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" aria-hidden="true" class="size-4">
+          <path d="M2 4h12M2 8h12M2 12h12" />
+        </svg>
+      </label>
+    </div>
   </div>
 
   <nav
-    class="glass-card fixed left-4 right-4 top-3 z-50 flex h-14 flex-col items-center justify-start rounded-[20px] md:hidden"
+    id="mobile-menu"
+    aria-label="Principal"
+    class="fixed inset-x-0 top-[58px] z-[45] hidden h-[calc(100dvh-58px)] overflow-y-auto bg-[rgba(6,6,18,0.97)] px-6 font-mono backdrop-blur-[10px] min-[1150px]:hidden"
   >
-    <input type="checkbox" id="menu-toggle" class="hidden" />
-    <label
-      for="menu-toggle"
-      class="absolute left-3 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-xl text-white md:hidden"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-6 w-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </label>
-    <a
-      href="#start"
-      class="flex h-full items-center text-sm font-semibold uppercase tracking-[0.28em] text-slate-100"
-    >
-      Eric Diaz
-    </a>
-    <button
-      type="button"
-      data-language-toggle
-      class="absolute right-3 top-1/2 flex h-8 min-w-[48px] -translate-y-1/2 items-center justify-center rounded-xl border border-white/10 bg-white/5 px-3 text-[11px] font-semibold tracking-[0.22em] text-slate-200"
-    >
-      <span data-language-label>EN</span>
-    </button>
-    <div
-      id="mobile-menu"
-      class="glass-card fixed left-4 right-4 top-16 z-50 m-0 hidden max-h-[calc(100dvh-5rem)] flex-col overflow-y-auto rounded-[20px] p-2 text-white"
-    >
-      <div data-lang="en">
-        {
-          linksEN.map((link) => (
-            <a href={link.href} class="block rounded-xl p-4 text-center font-bold hover:bg-white/5">
-              {link.label}
-            </a>
-          ))
-        }
-      </div>
-      <div data-lang="es">
-        {
-          linksES.map((link) => (
-            <a href={link.href} class="block rounded-xl p-4 text-center font-bold hover:bg-white/5">
-              {link.label}
-            </a>
-          ))
-        }
-      </div>
-    </div>
-    <style>
-      #menu-toggle:checked ~ #mobile-menu {
-        display: flex;
-      }
+    {
+      navItems.map((item) => (
+        <a
+          href={item.href}
+          class="flex items-center justify-between border-b border-hairline-soft py-[18px] text-[13px] uppercase tracking-[0.1em] text-ink-2 transition-colors hover:text-ink"
+        >
+          <span data-lang="es">{item.es}</span>
+          <span data-lang="en">{item.en}</span>
+          <span aria-hidden="true" class="text-ink-4">
+            {item.order}
+          </span>
+        </a>
+      ))
+    }
+  </nav>
 
-      :global(#overlay) {
-        display: none;
-      }
+  <style>
+    #menu-toggle:checked ~ #mobile-menu {
+      display: block;
+    }
+  </style>
 
-      :global(body:has(#menu-toggle:checked) #overlay) {
-        display: block;
-      }
-    </style>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const toggle = document.getElementById("menu-toggle");
-        if (!(toggle instanceof HTMLInputElement)) {
-          return;
-        }
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
 
-        document.querySelectorAll("#mobile-menu a").forEach((anchor) => {
-          anchor.addEventListener("click", () => {
-            toggle.checked = false;
-          });
-        });
-
-        document.querySelectorAll("header [data-language-toggle]").forEach((button) => {
-          button.addEventListener("click", () => {
-            toggle.checked = false;
-          });
+    if (menuToggle instanceof HTMLInputElement) {
+      document.querySelectorAll("#mobile-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menuToggle.checked = false;
         });
       });
-    </script>
-  </nav>
-  <label
-    id="overlay"
-    for="menu-toggle"
-    class="fixed inset-0 z-40 bg-black/80 md:hidden"
-    aria-hidden="true"></label>
+    }
+  </script>
 </header>

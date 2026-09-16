@@ -1,10 +1,15 @@
+---
+const { class: className, ...rest } = Astro.props;
+---
+
 <svg
-    class={Astro.props.class}
+  class={className}
   viewBox="0 0 512 512"
-  width="200px"
   xml:space="preserve"
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
+  aria-hidden="true"
+  {...rest}
   ><g id="_x32_33-node-js"
     ><g
       ><path

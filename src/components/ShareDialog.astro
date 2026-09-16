@@ -1,0 +1,228 @@
+---
+import { shareCopy } from "../data/share";
+
+const siteUrl = Astro.site?.toString();
+---
+
+<div class="share-dialog" data-share-modal data-share-url={siteUrl} hidden>
+  <div class="share-panel" role="dialog" aria-modal="true" aria-labelledby="share-dialog-title">
+    <div class="flex items-center justify-between border-b border-hairline pb-4">
+      <p id="share-dialog-title" class="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+        <span data-lang="es">{shareCopy.title.es}</span>
+        <span data-lang="en">{shareCopy.title.en}</span>
+      </p>
+      <button type="button" class="share-close" data-share-close data-lang="es" aria-label={shareCopy.close.es}>✕</button>
+      <button type="button" class="share-close" data-share-close data-lang="en" aria-label={shareCopy.close.en}>✕</button>
+    </div>
+
+    <div class="mx-auto mt-6 w-fit bg-white p-3">
+      <img src="/qr.svg" width="190" height="190" alt="" />
+    </div>
+
+    <div class="mt-6 flex border border-hairline">
+      <span class="min-w-0 flex-1 truncate px-3 py-3 font-mono text-[11px] text-ink-2" data-share-url-display></span>
+      <button type="button" class="share-copy" data-share-copy data-lang="es">{shareCopy.copy.es}</button>
+      <button type="button" class="share-copy" data-share-copy data-lang="en">{shareCopy.copy.en}</button>
+    </div>
+
+    <div class="mt-4 flex">
+      <button type="button" class="share-action" data-share-native data-lang="es">{shareCopy.share.es}</button>
+      <button type="button" class="share-action" data-share-native data-lang="en">{shareCopy.share.en}</button>
+      <a href="/eric-diaz-cv.pdf" download="Eric-David-Diaz-CV.pdf" class="share-action share-download" data-lang="es">{shareCopy.download.es}</a>
+      <a href="/eric-diaz-cv.pdf" download="Eric-David-Diaz-CV.pdf" class="share-action share-download" data-lang="en">{shareCopy.download.en}</a>
+    </div>
+  </div>
+</div>
+
+<div class="share-toast" data-share-toast hidden role="status" aria-live="polite">
+  <span data-lang="es">{shareCopy.copied.es}</span>
+  <span data-lang="en">{shareCopy.copied.en}</span>
+</div>
+
+<style>
+  .share-dialog {
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgb(4 4 12 / 0.82);
+    backdrop-filter: blur(6px);
+  }
+
+  .share-dialog[hidden],
+  .share-toast[hidden] {
+    display: none;
+  }
+
+  .share-panel {
+    width: 100%;
+    max-width: 430px;
+    padding: 26px;
+    border: 1px solid rgb(255 255 255 / 0.16);
+    background: #0a0a18;
+  }
+
+  .share-close {
+    color: #a3a3b8;
+    font-family: "Geist Mono", monospace;
+    font-size: 14px;
+    line-height: 1;
+    transition: color 0.2s ease;
+  }
+
+  .share-close:hover {
+    color: #22d3ee;
+  }
+
+  .share-copy {
+    border-left: 1px solid rgb(255 255 255 / 0.1);
+    padding: 0 12px;
+    color: #22d3ee;
+    font-family: "Geist Mono", monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+
+  .share-action {
+    display: inline-flex;
+    width: 50%;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(255 255 255 / 0.1);
+    color: #e4e4ef;
+    font-family: "Geist Mono", monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .share-download {
+    border-left-width: 0;
+  }
+
+  .share-action:hover {
+    background: rgb(255 255 255 / 0.05);
+    color: #22d3ee;
+  }
+
+  .share-toast {
+    position: fixed;
+    bottom: 26px;
+    left: 50%;
+    z-index: 80;
+    padding: 12px 20px;
+    transform: translateX(-50%);
+    background: #f8fafc;
+    color: #060612;
+    font-family: "Geist Mono", monospace;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    animation: toastIn 0.2s ease both;
+  }
+
+  :global(.share-copy-fallback) {
+    position: fixed;
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .share-toast {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  const modal = document.querySelector<HTMLElement>("[data-share-modal]");
+  const toast = document.querySelector<HTMLElement>("[data-share-toast]");
+  const urlDisplay = document.querySelector<HTMLElement>("[data-share-url-display]");
+  const openButtons = document.querySelectorAll<HTMLButtonElement>("[data-share-open]");
+  const closeButtons = document.querySelectorAll<HTMLButtonElement>("[data-share-close]");
+  const copyButtons = document.querySelectorAll<HTMLButtonElement>("[data-share-copy]");
+  const nativeShareButtons = document.querySelectorAll<HTMLButtonElement>("[data-share-native]");
+  let toastTimeout: ReturnType<typeof setTimeout> | undefined;
+
+  const getPortfolioUrl = () => modal?.dataset.shareUrl || window.location.origin;
+
+  const showToast = () => {
+    if (!toast) return;
+
+    toast.hidden = false;
+    if (toastTimeout) clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => {
+      toast.hidden = true;
+    }, 2200);
+  };
+
+  const copyPortfolioUrl = async () => {
+    const url = getPortfolioUrl();
+
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch {
+      const textarea = document.createElement("textarea");
+      textarea.value = url;
+      textarea.setAttribute("readonly", "");
+      textarea.className = "share-copy-fallback";
+      document.body.append(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      textarea.remove();
+    }
+
+    showToast();
+  };
+
+  const closeModal = () => {
+    if (modal) modal.hidden = true;
+  };
+
+  openButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (!modal) return;
+      modal.hidden = false;
+      if (urlDisplay) urlDisplay.textContent = getPortfolioUrl();
+    });
+  });
+
+  closeButtons.forEach((button) => button.addEventListener("click", closeModal));
+  copyButtons.forEach((button) => button.addEventListener("click", () => void copyPortfolioUrl()));
+
+  nativeShareButtons.forEach((button) => {
+    button.addEventListener("click", async () => {
+      const url = getPortfolioUrl();
+
+      if (!navigator.share) {
+        await copyPortfolioUrl();
+        return;
+      }
+
+      try {
+        await navigator.share({ title: "Eric David Diaz — Portfolio", url });
+      } catch {
+        // The user can cancel the native share sheet without requiring feedback.
+      }
+    });
+  });
+
+  if (!navigator.share && window.matchMedia("(pointer: fine)").matches) {
+    nativeShareButtons.forEach((button) => {
+      button.hidden = true;
+    });
+  }
+
+  modal?.addEventListener("click", (event) => {
+    if (event.target === modal) closeModal();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeModal();
+  });
+</script>

@@ -12,54 +12,44 @@ import Contact from "../components/Contact.astro";
 import AITools from "../components/AITools.astro";
 import Footer from "../components/Footer.astro";
 import CommandPalette from "../components/CommandPalette.astro";
+import ShareDialog from "../components/ShareDialog.astro";
 ---
 
 <Layout
-  title="Eric David Diaz - Full Stack Engineer | Portfolio"
-  description="Senior full-stack engineer currently building at Bixlabs. Portfolio focused on scalable product delivery, AI-powered workflows, and high-quality engineering execution."
+  title="Eric David Diaz — Full-Stack Engineer"
+  description="Full-stack engineer from Argentina building remote products with React, Node.js, Astro, and AI-assisted development for scalable teams and modern workflows."
 >
   <main>
-    <div class="mx-auto flex items-center justify-start gap-x-10 py-2 xl:w-[1120px]" id="start">
-      <Header />
-    </div>
-    <SectionContainer class="pb-20 pt-10 sm:pt-28">
-      <SectionContainer>
-        <Presentation />
-      </SectionContainer>
-
-      <SectionContainer>
-        <Experience />
-      </SectionContainer>
-
-      <SectionContainer>
-        <Achievements />
-      </SectionContainer>
-
-      <SectionContainer>
-        <Technologies />
-      </SectionContainer>
-
-      <SectionContainer>
-        <AITools />
-      </SectionContainer>
-
-      <SectionContainer>
-        <Projects />
-      </SectionContainer>
-
-      <SectionContainer>
-        <AboutMe />
-      </SectionContainer>
-
-      <SectionContainer>
-        <Contact />
-      </SectionContainer>
+    <Header />
+    <SectionContainer id="start" class="pt-[130px]">
+      <Presentation />
     </SectionContainer>
-
-    <SectionContainer class="mt-2">
+    <SectionContainer id="experience" class="pt-[120px]">
+      <Experience />
+    </SectionContainer>
+    <SectionContainer id="achievements" class="pt-[120px]">
+      <Achievements />
+    </SectionContainer>
+    <SectionContainer id="technologies" class="pt-[120px]">
+      <Technologies />
+    </SectionContainer>
+    <SectionContainer id="ai-tools" class="pt-[120px]">
+      <AITools />
+    </SectionContainer>
+    <SectionContainer id="projects" class="pt-[120px]">
+      <Projects />
+    </SectionContainer>
+    <SectionContainer id="about-me" class="pt-[120px]">
+      <AboutMe />
+    </SectionContainer>
+    <SectionContainer id="contact" class="pt-[120px]">
+      <Contact />
+    </SectionContainer>
+    <SectionContainer as="div" class="pt-[120px]">
       <Footer />
     </SectionContainer>
 
+    <ShareDialog />
     <CommandPalette />
   </main>
 </Layout>

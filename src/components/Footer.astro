@@ -1,50 +1,16 @@
 ---
-const footerCopyEN = {
-  experience: "Experience",
-  aiTools: "AI Tools",
-  projects: "Projects",
-  contact: "Contact",
-  closing: "(c) 2026 Eric David Diaz. Shipping modern product experiences from Argentina.",
-};
-
-const footerCopyES = {
-  experience: "Experiencia",
-  aiTools: "Herramientas IA",
-  projects: "Proyectos",
-  contact: "Contacto",
-  closing: "(c) 2026 Eric David Diaz. Construyendo experiencias de producto modernas desde Argentina.",
-};
+import { footerContent } from "../data/contact";
 ---
 
-<footer class="mx-auto w-full px-4 pb-16 pt-1 lg:w-[740px]">
-  <div class="glass-card rounded-[22px] px-6 py-7 md:px-8 md:py-8">
-    <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between" data-lang="en">
-      <div>
-        <p class="text-lg font-semibold text-white">Eric David Diaz</p>
-      </div>
-      <div class="flex flex-wrap gap-4 text-sm text-slate-300">
-        <a href="#experience" class="transition hover:text-accent-cyan">{footerCopyEN.experience}</a>
-        <a href="#ai-tools" class="transition hover:text-accent-cyan">{footerCopyEN.aiTools}</a>
-        <a href="#projects" class="transition hover:text-accent-cyan">{footerCopyEN.projects}</a>
-        <a href="#contact" class="transition hover:text-accent-cyan">{footerCopyEN.contact}</a>
-      </div>
-    </div>
-    <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between" data-lang="es">
-      <div>
-        <p class="text-lg font-semibold text-white">Eric David Diaz</p>
-      </div>
-      <div class="flex flex-wrap gap-4 text-sm text-slate-300">
-        <a href="#experience" class="transition hover:text-accent-cyan">{footerCopyES.experience}</a>
-        <a href="#ai-tools" class="transition hover:text-accent-cyan">{footerCopyES.aiTools}</a>
-        <a href="#projects" class="transition hover:text-accent-cyan">{footerCopyES.projects}</a>
-        <a href="#contact" class="transition hover:text-accent-cyan">{footerCopyES.contact}</a>
-      </div>
-    </div>
-    <div class="mt-6 border-t border-white/10 pt-6 text-sm text-slate-500" data-lang="en">
-      {footerCopyEN.closing}
-    </div>
-    <div class="mt-6 border-t border-white/10 pt-6 text-sm text-slate-500" data-lang="es">
-      {footerCopyES.closing}
-    </div>
+<footer class="mx-auto flex w-full flex-wrap items-center gap-x-5 gap-y-4 border-t border-hairline-strong pb-16 pt-[26px] font-mono text-[11px] uppercase tracking-[0.14em]">
+  <span class="text-[#f8fafc]">Eric David Diaz</span>
+  <span class="text-ink-3">{footerContent.copyright}</span>
+  <div class="ml-auto flex items-center gap-5 text-ink-3">
+    <a href="#" class="transition-colors hover:text-accent">
+      <span data-lang="es">{footerContent.top.es}</span>
+      <span data-lang="en">{footerContent.top.en}</span>
+    </a>
+    <a href="https://github.com/Euka-e" target="_blank" rel="noreferrer" class="transition-colors hover:text-accent">GitHub</a>
+    <a href="https://www.linkedin.com/in/eric-diaz-euka/" target="_blank" rel="noreferrer" class="transition-colors hover:text-accent">LinkedIn</a>
   </div>
 </footer>
