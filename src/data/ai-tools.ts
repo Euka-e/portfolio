@@ -17,8 +17,8 @@ export const aiToolsContent = {
     en: "AI-Powered Development",
   },
   intro: {
-    es: "Integro herramientas de IA en cada etapa del flujo de trabajo para entregar más rápido con mayor calidad.",
-    en: "I integrate AI tools across every stage of the workflow to deliver faster with higher quality.",
+    es: "Integro herramientas de IA y flujos agentic en cada etapa del trabajo para entregar más rápido con mayor calidad.",
+    en: "I integrate AI tools and agentic workflows across every stage of the work to deliver faster with higher quality.",
   },
   closing: {
     es: "Usar herramientas de IA no significa reemplazar criterio de ingeniería, sino amplificarlo. Valido cada salida generada por IA, entiendo los tradeoffs y entrego código listo para producción.",
@@ -28,10 +28,10 @@ export const aiToolsContent = {
 
 export const aiTools = [
   {
-    name: "Claude",
+    name: "Claude Code",
     description: {
-      es: "Investigación, planificación de implementación e iteración de código.",
-      en: "Research, implementation planning, and code iteration.",
+      es: "Investigación, planificación de implementación, integración MCP e iteración de código.",
+      en: "Research, implementation planning, MCP integration, and code iteration.",
     },
     icon: "claude",
   },

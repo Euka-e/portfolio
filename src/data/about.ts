@@ -19,19 +19,19 @@ export const aboutContent = {
   },
   paragraphs: [
     {
-      es: "Soy ingeniero full-stack con más de 5 años de experiencia construyendo productos digitales escalables en startups, agencias y equipos de producto. Actualmente trabajo en Bixlabs, donde me enfoco en entregar soluciones pulidas con ejecución técnica fuerte, buen criterio UX y velocidad pragmática.",
-      en: "I'm a full-stack engineer with 5+ years of experience building scalable digital products across startups, agencies, and product teams. I currently work at Bixlabs, where I focus on shipping polished solutions with strong technical execution, thoughtful UX, and pragmatic delivery speed.",
+      es: "Soy ingeniero full-stack con más de 5 años de experiencia construyendo productos digitales escalables en startups, agencias y equipos de producto. Mi experiencia reciente incluye liderazgo técnico en Bixlabs y desarrollo full-stack para productos en distintos mercados, con foco en ejecución técnica fuerte, buen criterio UX y velocidad pragmática.",
+      en: "I'm a full-stack engineer with 5+ years of experience building scalable digital products across startups, agencies, and product teams. My recent experience includes technical leadership at Bixlabs and full-stack product development across markets, with a focus on strong technical execution, thoughtful UX, and pragmatic delivery speed.",
     },
     {
-      es: "Uso IA como multiplicador de fuerza en discovery, implementación, QA y documentación. Ese workflow me ayuda a moverme más rápido, pero el estándar sigue siendo el mismo: entender los tradeoffs, validar el resultado y entregar código listo para producción.",
-      en: "I use AI as a force multiplier across discovery, implementation, QA, and documentation. That workflow helps me move faster, but the standard stays the same: understand the tradeoffs, validate the output, and ship code that is production-ready.",
+      es: "Uso IA como multiplicador de fuerza en discovery, implementación, QA y documentación. Además de aplicarla en mi trabajo, facilité la adopción de Claude Code, ChatGPT y MCP para developers y líderes. El estándar sigue siendo el mismo: entender los tradeoffs, validar el resultado y entregar código listo para producción.",
+      en: "I use AI as a force multiplier across discovery, implementation, QA, and documentation. Beyond applying it in my work, I facilitated adoption of Claude Code, ChatGPT, and MCP for engineers and leaders. The standard stays the same: understand the tradeoffs, validate the output, and ship code that is production-ready.",
     },
   ],
   skillsLabel: {
     es: "Habilidades clave",
     en: "Top skills",
   },
-  skills: ["Prisma", "Microservices", "Java", "System Design", "CI/CD"],
+  skills: ["Technical Leadership", "CI/CD", "MCP", "System Design", "Prisma"],
 } as const satisfies {
   title: LocalizedText;
   heading: LocalizedText;
@@ -70,8 +70,8 @@ export const aboutSections = [
         en: "Argentina Programa, Angular and Java path.",
       },
       {
-        es: "EF SET English, C2 Proficient.",
-        en: "EF SET English, C2 Proficient.",
+        es: "Cambridge English: First (FCE), B2.",
+        en: "Cambridge English: First (FCE), B2.",
       },
       {
         es: "Certificado en Design Thinking, Certiprof.",
