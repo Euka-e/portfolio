@@ -1,57 +1,49 @@
 export const achievements = [
   {
-    metric: 40,
-    suffix: "%",
     es: {
-      label: "Reducción de despliegues",
-      description: "Reduje tiempos de despliegue mediante automatización de workflows y pipelines de release más limpios.",
+      label: "Planificación y entrega técnica",
+      description: "En Bixlabs participé en decisiones de arquitectura y coordiné la entrega de funcionalidades full-stack, con revisiones de código y documentación de reglas y flujos.",
     },
     en: {
-      label: "Deployment reduction",
-      description: "Reduced deployment time through workflow automation and cleaner release pipelines.",
+      label: "Technical planning and delivery",
+      description: "At Bixlabs, I contributed to architecture decisions and coordinated full-stack feature delivery through code reviews and documentation of rules and workflows.",
     },
   },
   {
-    metric: 60,
-    suffix: "%",
     es: {
-      label: "Entrega de producto más rápida",
-      description: "Recorté tiempos de entrega de trabajo de calidad al pasar de una implementación totalmente manual a workflows de desarrollo asistidos por IA.",
+      label: "Adopción de desarrollo asistido por IA",
+      description: "En Kabeli incorporé Claude Code y MCP al flujo de trabajo y capacité a engineers y referentes técnicos; algunas tareas seleccionadas bajaron de cerca de una semana a aproximadamente 2–3 días.",
     },
     en: {
-      label: "Faster product delivery",
-      description: "Cut delivery time for quality product work by moving from fully manual implementation to AI-assisted development workflows.",
+      label: "AI-assisted development adoption",
+      description: "At Kabeli, I introduced Claude Code and MCP into the workflow and trained engineers and technical leaders; selected tasks went from around a week to approximately 2–3 days.",
     },
   },
   {
-    metric: 25,
-    suffix: "%",
     es: {
-      label: "Mejora en engagement UX",
-      description: "Mejoré el engagement con mejores sistemas de componentes, más pulido de interacciones y correcciones de usabilidad.",
+      label: "Modernización de sistemas",
+      description: "Colaboré con un equipo en la migración de un sistema legado de facturación, cuidando la continuidad de los workflows de negocio.",
     },
     en: {
-      label: "UX engagement lift",
-      description: "Improved engagement through better component systems, interaction polish, and usability fixes.",
+      label: "Legacy system modernization",
+      description: "I contributed to a team migration of a legacy billing system, preserving business workflows during the transition.",
     },
   },
   {
-    metric: 50,
-    suffix: "+",
     es: {
-      label: "Estudiantes guiados",
-      description: "Acompañé a developers y estudiantes en debugging, hábitos de entrega e implementación full-stack.",
+      label: "Acompañamiento técnico",
+      description: "Apoyé a estudiantes y compañeros con debugging, pair programming, resolución de problemas y prácticas de calidad de código.",
     },
     en: {
-      label: "Students mentored",
-      description: "Coached developers and students on debugging, delivery habits, and full-stack implementation.",
+      label: "Technical mentoring",
+      description: "I supported students and teammates with debugging, pair programming, problem solving, and code quality practices.",
     },
   },
 ] as const;
 
 export const achievementsCopy = {
   title: {
-    es: "Logros clave",
-    en: "Key Achievements",
+    es: "Aportes profesionales",
+    en: "Professional Contributions",
   },
 } as const;

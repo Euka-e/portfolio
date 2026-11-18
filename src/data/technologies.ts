@@ -19,12 +19,12 @@ export const technologyGroups = [
   {
     title: { es: "Frontend", en: "Frontend" },
     tools: [
-      { name: "Angular", icon: "angular" },
+      { name: "TypeScript", icon: "typescript" },
       { name: "React", icon: "react" },
       { name: "Next.js", icon: "next" },
-      { name: "Astro", icon: "astro" },
       { name: "JavaScript", icon: "javascript" },
-      { name: "TypeScript", icon: "typescript" },
+      { name: "Angular", icon: "angular" },
+      { name: "Astro", icon: "astro" },
       { name: "Redux", icon: "redux" },
     ],
   },

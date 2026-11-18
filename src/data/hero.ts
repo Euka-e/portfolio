@@ -1,19 +1,19 @@
 export const hero = {
   eyebrow: {
-    es: "Ingeniero full-stack",
-    en: "Full-stack engineering",
+    es: "Senior Full-Stack Software Engineer",
+    en: "Senior Full-Stack Software Engineer",
   },
   greeting: {
     es: "Hola, soy",
     en: "Hi, I'm",
   },
   tagline: {
-    es: "Desarrollador full-stack con más de 5 años construyendo productos escalables. Aprovecho herramientas de IA para entregar más rápido y con un estándar de calidad más alto.",
-    en: "Full-stack developer with 5+ years building scalable products. I leverage AI tools to ship faster and at a higher quality standard.",
+    es: "Ingeniero full-stack con más de 5 años de experiencia combinada entre trabajo freelance y equipos de producto. Desarrollo con TypeScript, React, Node.js y NestJS, participo en decisiones de arquitectura y ayudo a los equipos a incorporar IA al desarrollo con criterio técnico.",
+    en: "Full-stack engineer with 5+ years of combined experience across freelance work and product teams. I build with TypeScript, React, Node.js, and NestJS, contribute to architecture decisions, and help teams adopt AI-assisted development with sound engineering judgment.",
   },
   primaryCta: {
-    es: "Contrátame",
-    en: "Hire me",
+    es: "Hablemos",
+    en: "Get in touch",
   },
   secondaryCta: {
     es: "Ver proyectos",
@@ -21,15 +21,15 @@ export const hero = {
   },
   mailLabel: {
     es: "Correo",
-    en: "Mail",
+    en: "Email",
   },
   phrases: {
-    es: ["Ingeniero Full Stack", "Desarrollador potenciado por IA", "Líder de equipo"],
-    en: ["Full Stack Engineer", "AI-Powered Developer", "Team Leader"],
+    es: ["Ingeniería full-stack", "Liderazgo técnico", "Desarrollo asistido por IA"],
+    en: ["Full-stack engineering", "Technical leadership", "AI-assisted engineering"],
   },
   figure: [
     { label: "LOC", es: "Argentina", en: "Argentina" },
-    { label: "NOW", es: "Bixlabs", en: "Bixlabs" },
-    { label: "FOCUS", es: "Product engineering / workflows de IA", en: "Product engineering / AI workflows" },
+    { label: "OPEN", es: "Oportunidades remotas", en: "Remote opportunities" },
+    { label: "FOCUS", es: "Arquitectura / entrega técnica", en: "Architecture / technical delivery" },
   ],
 } as const;

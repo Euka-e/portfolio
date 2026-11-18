@@ -1,6 +1,8 @@
 ---
 import { technologyGroups } from "../data/technologies";
 import { techIcons } from "../icons/technologies";
+
+const technologyCount = technologyGroups.reduce((total, group) => total + group.tools.length, 0);
 ---
 
 <div class="py-20 md:py-28">
@@ -10,7 +12,7 @@ import { techIcons } from "../icons/technologies";
       <span data-lang="es">Tecnologías</span>
       <span data-lang="en">Technologies</span>
     </h2>
-    <span class="ml-auto font-mono text-[11px] tracking-[0.2em] text-ink-4">23</span>
+    <span class="ml-auto font-mono text-[11px] tracking-[0.2em] text-ink-4">{technologyCount}</span>
   </div>
 
   <div class="space-y-10">

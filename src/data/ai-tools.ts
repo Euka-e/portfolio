@@ -13,16 +13,16 @@ type AiTool = {
 
 export const aiToolsContent = {
   title: {
-    es: "Desarrollo potenciado por IA",
-    en: "AI-Powered Development",
+    es: "Desarrollo asistido por IA",
+    en: "AI-Assisted Engineering",
   },
   intro: {
-    es: "Integro herramientas de IA y flujos agentic en cada etapa del trabajo para entregar más rápido con mayor calidad.",
-    en: "I integrate AI tools and agentic workflows across every stage of the work to deliver faster with higher quality.",
+    es: "Uso herramientas de IA para apoyar investigación, planificación e implementación, con revisión técnica y validación en cada etapa.",
+    en: "I use AI tools to support research, planning, and implementation, with engineering review and validation at each stage.",
   },
   closing: {
-    es: "Usar herramientas de IA no significa reemplazar criterio de ingeniería, sino amplificarlo. Valido cada salida generada por IA, entiendo los tradeoffs y entrego código listo para producción.",
-    en: "Using AI tools isn't about replacing engineering judgment - it's about amplifying it. I validate every AI-generated output, understand the tradeoffs, and ship production-ready code.",
+    es: "La IA asiste el trabajo; el criterio de ingeniería sigue siendo responsable de revisar las propuestas, evaluar tradeoffs y comprobar el comportamiento.",
+    en: "AI assists the work; engineering judgment remains responsible for reviewing suggestions, evaluating tradeoffs, and verifying behavior.",
   },
 } as const satisfies Record<string, LocalizedText>;
 
@@ -34,45 +34,5 @@ export const aiTools = [
       en: "Research, implementation planning, MCP integration, and code iteration.",
     },
     icon: "claude",
-  },
-  {
-    name: "Cursor",
-    description: {
-      es: "Loops de edición rápidos, navegación de repos y refactors locales.",
-      en: "Fast editing loops, repo navigation, and local refactors.",
-    },
-    icon: "cursor",
-  },
-  {
-    name: "GitHub Copilot",
-    description: {
-      es: "Aceleración de boilerplate y autocompletado dentro del editor.",
-      en: "Boilerplate acceleration and in-editor completions.",
-    },
-    icon: "copilot",
-  },
-  {
-    name: "v0",
-    description: {
-      es: "Ideación de UI y exploración rápida de layouts antes de endurecerlos.",
-      en: "UI ideation and rapid layout exploration before hardening.",
-    },
-    icon: "v0",
-  },
-  {
-    name: "Vercel AI SDK",
-    description: {
-      es: "Features de IA en producción, streaming UX y flujos con herramientas.",
-      en: "Production AI features, streaming UX, and tool-enabled flows.",
-    },
-    icon: "vercelAi",
-  },
-  {
-    name: "OpenAI API",
-    description: {
-      es: "Embeddings, asistentes y flujos de IA orientados al producto.",
-      en: "Embeddings, assistants, and product-facing AI workflows.",
-    },
-    icon: "openai",
   },
 ] as const satisfies readonly AiTool[];

@@ -11,18 +11,11 @@ import { achievements, achievementsCopy } from "../data/achievements";
     </h2>
   </div>
 
-  <div class="mt-14 grid grid-cols-1 gap-px bg-hairline md:grid-cols-2 lg:grid-cols-4">
+  <div class="mt-14 grid grid-cols-1 gap-px bg-hairline md:grid-cols-2">
     {
       achievements.map((achievement) => (
         <article data-reveal class="bg-bg px-[26px] pb-[30px] pt-7">
-          <p
-            data-counter={achievement.metric}
-            data-counter-suffix={achievement.suffix}
-            class="text-metric tabular-nums text-ink"
-          >
-            0{achievement.suffix}
-          </p>
-          <h3 class="mt-[18px] font-mono text-[11.5px] uppercase tracking-[0.16em] text-accent">
+          <h3 class="text-[17px] font-medium leading-snug text-accent">
             <span data-lang="es">{achievement.es.label}</span>
             <span data-lang="en">{achievement.en.label}</span>
           </h3>

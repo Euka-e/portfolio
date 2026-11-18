@@ -5,6 +5,7 @@ export type LocalizedText = {
 
 export interface Project {
   title: LocalizedText;
+  context: LocalizedText;
   description: LocalizedText;
   year: string;
   tasks: readonly LocalizedText[];

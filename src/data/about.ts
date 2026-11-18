@@ -19,19 +19,19 @@ export const aboutContent = {
   },
   paragraphs: [
     {
-      es: "Soy ingeniero full-stack con más de 5 años de experiencia construyendo productos digitales escalables en startups, agencias y equipos de producto. Mi experiencia reciente incluye liderazgo técnico en Bixlabs y desarrollo full-stack para productos en distintos mercados, con foco en ejecución técnica fuerte, buen criterio UX y velocidad pragmática.",
-      en: "I'm a full-stack engineer with 5+ years of experience building scalable digital products across startups, agencies, and product teams. My recent experience includes technical leadership at Bixlabs and full-stack product development across markets, with a focus on strong technical execution, thoughtful UX, and pragmatic delivery speed.",
+      es: "Soy ingeniero full-stack con más de 5 años de experiencia combinada entre trabajo independiente y equipos de producto. Trabajo principalmente con TypeScript, React, Node.js, NestJS y PostgreSQL; también participo en decisiones de arquitectura, planificación técnica y acompañamiento de equipos.",
+      en: "I'm a full-stack engineer with 5+ years of combined experience across independent work and product teams. I work primarily with TypeScript, React, Node.js, NestJS, and PostgreSQL, and contribute to architecture decisions, technical planning, and team development.",
     },
     {
-      es: "Uso IA como multiplicador de fuerza en discovery, implementación, QA y documentación. Además de aplicarla en mi trabajo, facilité la adopción de Claude Code, ChatGPT y MCP para developers y líderes. El estándar sigue siendo el mismo: entender los tradeoffs, validar el resultado y entregar código listo para producción.",
-      en: "I use AI as a force multiplier across discovery, implementation, QA, and documentation. Beyond applying it in my work, I facilitated adoption of Claude Code, ChatGPT, and MCP for engineers and leaders. The standard stays the same: understand the tradeoffs, validate the output, and ship code that is production-ready.",
+      es: "Incorporo herramientas de IA en investigación, planificación, implementación y documentación. En Kabeli facilité la adopción de Claude Code y MCP con developers y referentes técnicos. Reviso las propuestas, verifico el comportamiento y mantengo el criterio de ingeniería en cada decisión.",
+      en: "I use AI tools for research, planning, implementation, and documentation. At Kabeli, I helped engineers and technical leaders adopt Claude Code and MCP. I review suggestions, verify behavior, and keep engineering judgment central to each decision.",
     },
   ],
   skillsLabel: {
     es: "Habilidades clave",
     en: "Top skills",
   },
-  skills: ["Technical Leadership", "CI/CD", "MCP", "System Design", "Prisma"],
+  skills: ["TypeScript", "React", "Node.js", "NestJS", "PostgreSQL", "System Design", "Technical Leadership"],
 } as const satisfies {
   title: LocalizedText;
   heading: LocalizedText;
@@ -73,10 +73,22 @@ export const aboutSections = [
         es: "Cambridge English: First (FCE), B2.",
         en: "Cambridge English: First (FCE), B2.",
       },
-      {
-        es: "Certificado en Design Thinking, Certiprof.",
-        en: "Design Thinking Certificate, Certiprof.",
-      },
+    ],
+  },
+  {
+    title: { es: "Idiomas", en: "Languages" },
+    items: [
+      { es: "Español nativo.", en: "Spanish — native." },
+      { es: "Inglés B2 — Cambridge English: First (FCE).", en: "English B2 — Cambridge English: First (FCE)." },
     ],
   },
 ] as const satisfies readonly AboutSection[];
+
+export const certifications = [
+  { title: "Reactive Architecture Foundations", issuer: "IBM", date: "Nov 2026" },
+  { title: "Design Thinking Professional Certification (DTPC®)", issuer: "CertiProf", date: "Feb 2025" },
+  { title: "JavaScript", issuer: "freeCodeCamp", date: "Nov 2026" },
+  { title: "Node.js (Intermediate)", issuer: "HackerRank Campus Club, FCDS", date: "Nov 2026" },
+  { title: "Claude Academy: Claude Code in Action", issuer: "Anthropic", date: "Nov 2026" },
+  { title: "Claude Academy: Building Effective Human-Agent Teams (beta)", issuer: "Anthropic", date: "Nov 2026" },
+] as const;

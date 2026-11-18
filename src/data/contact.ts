@@ -13,8 +13,8 @@ export const contactContent = {
     en: "Ready to build something strong?",
   },
   body: {
-    es: "Estoy abierto a roles full-time, trabajo por contrato y equipos de producto técnicamente ambiciosos. Estoy basado en Argentina y me siento cómodo colaborando entre zonas horarias con workflows async-friendly.",
-    en: "I'm open to full-time roles, contract work, and technically ambitious product teams. Based in Argentina and comfortable collaborating across time zones with async-friendly workflows.",
+    es: "Estoy abierto a roles remotos full-time y por contrato como Senior Full-Stack Engineer o Technical Lead. Estoy basado en Argentina y puedo colaborar con equipos en distintas zonas horarias.",
+    en: "I'm open to remote full-time and contract roles as a Senior Full-Stack Engineer or Technical Lead. I'm based in Argentina and can work with teams across time zones.",
   },
   hire: {
     es: "Contrátame →",
